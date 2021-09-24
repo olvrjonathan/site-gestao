@@ -1,43 +1,58 @@
- @import 'agendastyle';
-
- //Cores Principais Site:
+//Cores Principais Site:
     $darkblack: #0D0B0B;
-    $darkgray: #241F1E;
+    $gray: #241F1E;
+    $darkgray: #181a1b;
     $silver: #D4CFCD;
     $shinyorange: #D14707;
     $maybebrown: #4A1600;
 
+
+//Importando o modulo .scss com as configurações css da pagina agenda
+    @import 'agendastyle';
+
+
+
+//Configurações gerais
 *{
     margin:2;
     padding:2;
     box-sizing:border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: $darkblack;
+    background-color: $darkgray;
+    width: 100%;
 }
 
-.navegation{
-    background-color: $darkblack;
+body{
+    width: 100%;
 }
 
 h1 {
     font-family: verdana;
     text-align:center; 
     background-color: $maybebrown; 
-    padding: 15px; 
-    margin-top: 60px; 
+    padding: 1.5%; 
+    margin-top: 3%; 
     color:$silver
 }
+
+
+//Configurações da barra de navegação
+.navegation{
+    width: 100%;
+    background-color: $darkblack;
+}
+
 
 .center{
     display: flex;
     flex-wrap:wrap;
-    max-width: 1920px;
+    max-width: 100%;
     
     padding:0 2%;
 }
  
 header{
-    padding:20px 0;
+    padding:1% 0;
 
 }
 
