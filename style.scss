@@ -1,6 +1,15 @@
 $favorite-color: #0E163C;
 $font-stack: Arial, Helvetica, sans-serif;
 
+%no-decoration {
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}
+
 * {
     /* color: $favorite-color; */
     font-family: $font-stack;
@@ -29,6 +38,10 @@ $font-stack: Arial, Helvetica, sans-serif;
     height: 250px;
 }
 
+h2 {
+    @extend %no-decoration;
+}
+
 h3 {
     a {
         text-decoration: none;
@@ -37,4 +50,9 @@ h3 {
     a:hover {
         color: white;
     }
+}
+
+#estoque {
+    margin: 100px 0.5% 0 0.5%;
+    width: 99%;
 }
