@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link href="style.css" rel="stylesheet" />
+        <title>Configurações</title>
+    </head>
+<body>
+<!-- Barra de navegação -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark py-3 fixed-top">
+        <div class="container">
+            <a href="index.html" class="navbar-brand large-font"><i class="bi bi-clipboard-check"></i> Agendamento</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#barra">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="barra">
+                <ul class="nav navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#agenda" class="nav-link">Agenda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#relatorios" class="nav-link">Relatórios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#servicos" class="nav-link">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="stock.html" class="nav-link">Estoque</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Configurações</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- Cards -->
+    <section class="p-5 page-top">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md">
+                    <div class="card bg-dark text-light card-custom m-3">
+                        <div class="card-body text-center">
+                            <h1>
+                                <i class="bi bi-person-circle huge"></i>
+                            </h1>
+                        </div>
+                        <div class="card-title text-center">
+                            <h3>
+                                <a href="#" class="stretched-link">Alterar informações de cadastro</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light card-custom m-3">
+                        <div class="card-body text-center">
+                            <h1>
+                                <i class="bi bi-palette huge"></i>
+                            </h1>
+                        </div>
+                        <div class="card-title text-center">
+                            <h3>
+                                <a href="#" class="stretched-link">Alterar aparência</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light card-custom m-3">
+                        <div class="card-body text-center">
+                            <h1>
+                                <i class="bi bi-gear huge"></i>
+                            </h1>
+                        </div>
+                        <div class="card-title text-center">
+                            <h3>
+                                <a href="#" class="stretched-link">Alterar configurações de privacidade</a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- FAQ -->
+    <section class='p-5'>
+        <div class="container">
+            <h2 class="text-center mb-4">Perguntas frequentes</h2>
+            <div class="accordion" id="accordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q1">
+                        Como eu faço pra terminar esse trabalho a tempo?
+                        </button>
+                    </h2>
+                    <div id="Q1" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                        <div class="accordion-body">
+                            <strong>Você não termina.</strong> Boa sorte pra conseguir usar um milhão de classes enquanto confere se já usou todos os recursos exigidos.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q2">
+                        Por que nada funciona de primeira?
+                        </button>
+                    </h2>
+                    <div id="Q2" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                        <div class="accordion-body">
+                            <strong>Ninguém sabe.</strong> Mesmo copiando exemplos prontos, eles não funcionam de primeira nem por milagre, talvez seja alguma maldição.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q3">
+                        Como eu defino um padrão pra nomear classes?
+                        </button>
+                    </h2>
+                    <div id="Q3" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                        <div class="accordion-body">
+                            Se esforce para definir algo que faça sentido, como <code>nome-atributo</code> e perceba algum tempo depois que isso tem um defeito fatal ou conflito, então comece a usar um novo padrão e esqueça do anterior, tornando seu código uma porcaria.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<footer class="p-3 bg-dark text-light text-center position-relative bottom-0 w-100">
+    <div class="container">
+        <p>Copyright &copy; 2021 Algum Grupo</p>
+        <a href="#" class="position-absolute bottom-0 end-0 px-5 py-3">
+            <i class="bi bi-arrow-up-square h1"></i>
+        </a>
+    </div>
+</footer>
+</html>

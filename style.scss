@@ -1,0 +1,40 @@
+$favorite-color: #0E163C;
+$font-stack: Arial, Helvetica, sans-serif;
+
+* {
+    /* color: $favorite-color; */
+    font-family: $font-stack;
+}
+
+.size-small {
+    width: 40%;
+}
+
+.huge {
+    font-size: 100px;
+}
+
+.navbar-dark {
+    .navbar-brand {
+        font-size: 30px;
+    }
+}
+
+.page-top {
+    margin-top: 65px;
+}
+
+.card-custom {
+    position: relative;
+    height: 250px;
+}
+
+h3 {
+    a {
+        text-decoration: none;
+        color: #adb5bd;
+    }
+    a:hover {
+        color: white;
+    }
+}

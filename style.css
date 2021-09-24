@@ -1,0 +1,35 @@
+* {
+  /* color: $favorite-color; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.size-small {
+  width: 40%;
+}
+
+.huge {
+  font-size: 100px;
+}
+
+.navbar-dark .navbar-brand {
+  font-size: 30px;
+}
+
+.page-top {
+  margin-top: 65px;
+}
+
+.card-custom {
+  position: relative;
+  height: 250px;
+}
+
+h3 a {
+  text-decoration: none;
+  color: #adb5bd;
+}
+
+h3 a:hover {
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */
