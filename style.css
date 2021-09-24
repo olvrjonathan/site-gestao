@@ -43,10 +43,16 @@
           box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #0D0B0B;
+  width: 100%;
+}
+
+body{
+  width: 100%;
 }
 
 .navegation {
   background-color: #0D0B0B;
+  width: 100%;
 }
 
 h1 {
@@ -64,7 +70,7 @@ h1 {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  max-width: 1920px;
+  max-width: 100%;
   padding: 0 2%;
 }
 
