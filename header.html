@@ -1,20 +1,20 @@
-<!-- Barra de navegação -->
-<nav id="header" class="navbar navbar-expand-md bg-dark navbar-dark py-3 fixed-top">
-    <div class="container">
-        <a href="#" class="navbar-brand large-font">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3">
+    <div class="container-fluid">
+        <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#toggler">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand p-0" href="#">
             <img id="logo" src="imagens/marca_hostess.png" class="d-block img-fluid" alt="...">
         </a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#barra">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="barra">
-            <ul class="nav navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Início</a>
+        <div class="collapse navbar-collapse" id="toggler">
+            <ul class="navbar-nav ms-auto mb-0 mt-1 mx-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Início</a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="index.html">Usuário</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index-client.html">Cliente</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#business" class="nav-link">Afiliar-se</a>
@@ -29,10 +29,10 @@
                     <a href="#servicos" class="nav-link">Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a href="stock.html" class="nav-link">Estoque</a>
+                    <a class="nav-link" href="stock.html">Estoque</a>
                 </li>
                 <li class="nav-item">
-                    <a href="settings.html" class="nav-link">Configurações</a>
+                    <a class="nav-link" href="settings.html">Configurações</a>
                 </li>
             </ul>
         </div>
