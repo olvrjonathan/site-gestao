@@ -37,6 +37,6 @@ No github, foram feitos branchs para a contribuição individual dos membros sem
 Link do W3spaces: https://gestao.w3spaces.com/
 
 Foto da página home do site.
-![Página incial do site](\imagens\home-hostess.png)
+![Página incial do site](/imagens/home-hostess.png)
 
 
