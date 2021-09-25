@@ -4,7 +4,7 @@
 
 Nosso sistema se baseia no cadastro de produtos em banco de dados, e o cliente é capaz de fazer seu cadastro e agendamento. Em outras palavras, na página inicial do site é possível fazer login como usuário ou cliente, para facilitar a organização de agendamentos.
 
-A comunicação Empresa-Sistema seria feita pelo site. No site, após a empresa fazer seu cadastro, colocando dados essenciais como o número de whatsapp e o email empresarial, seriam visíveis: planilha excel com clientes agendados, estoque de produtos. Poderia ser mostrado também o custo de estoque e o ganho dos serviços realizados. Na comunicação Cliente-Serviço seria informado o preço previamente e, com uma confirmação de pagamento feita pela empresa, seria salvo automaticamente o valor do serviço no site.
+A comunicação Empresa-Sistema seria feita pelo site. No site, após a empresa fazer seu cadastro, colocando dados essenciais como o número de celular e o email empresarial, seriam visíveis: planilha excel com clientes agendados, estoque de produtos. Poderia ser mostrado também o custo de estoque e o ganho dos serviços realizados. Na comunicação Cliente-Serviço seria informado o preço previamente e, com uma confirmação de pagamento feita pela empresa, seria salvo automaticamente o valor do serviço no site.
 
 O site possui vantagens como:
 
@@ -36,5 +36,7 @@ No github, foram feitos branchs para a contribuição individual dos membros sem
 
 Link do W3spaces: https://gestao.w3spaces.com/
 
+Foto da página home do site.
+![Página incial do site](C:\Users\carri\OneDrive\Documentos\GitHub\site-gestao\imagens\home-hostess.png)
 
 
