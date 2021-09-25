@@ -44,6 +44,7 @@ a{
     margin-left: auto;
     padding: 20px 30px; /*afasta os elementos da borda*/
     text-align: center;   
+    margin-top: 10vh;
     margin-bottom: 50px; 
     border-radius: 10px;
 }
