@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset "UTF-8" />
+		
+		<!-- Título da janela -->
+		<title>Adicionar Serviços</title>
+		
+		<!-- CSS Bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	</head>
+	
+	<body>
+		<!-- Título da página -->
+		<div class="mx-4">
+			<h1>Adicionar Serviços</h1>
+		</div>
+		
+		<br>
+		<br>
+		
+		<!-- Form para registrar colaboradores -->
+		<form>
+			<div class="row g-3 mx-4">
+			
+				<!-- Inserir o nome do serviço no form (coluna tamanho 12) -->
+				<div class="col-12">
+					<label for="servico" class="form-label">Serviço:</label>
+					<input type="text" class="form-control" id="servico">
+				</div>
+				
+				<!-- Inserir o preço do serviço no form (coluna tamanho 12) -->
+				<div class="col-12">
+					<label for="servico" class="form-label">Preço (R$):</label>
+					<input type="text" class="form-control" id="servico">
+				</div>
+				
+				<!-- Inserir a duração do serviço no form (coluna tamanho 12) -->
+				<div class="col-12">
+					<label for="servico" class="form-label">Duração (Ex.: 30min):</label>
+					<input type="text" class="form-control" id="servico">
+				</div>
+				
+				<!-- Inserir um arquivo no form (coluna tamanho 12) -->
+				<div class="col-md-12">
+					<label for="imagem" class="form-label">Adicione uma imagem para o serviço:</label>
+					<input type="file" class="form-control" id="imagem">
+				</div>
+			</div>
+			
+			<!-- Botão de submit do form para concluir o registro -->
+			<div class="d-grid gap-2 col-6 mx-auto mt-4">
+				<button type="submit" class="btn btn-success">Concluir</button>
+			</div>
+		</form>
+		
+		<br>
+		
+		<!-- Botão para voltar à página de Serviços -->
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end mx-4 mb-3">
+			<button onclick="document.location='servicos.html'" class="btn btn-dark">Voltar</button>
+		</div>
+	</body>
+</html>
