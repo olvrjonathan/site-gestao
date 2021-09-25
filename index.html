@@ -13,27 +13,7 @@
     <!-- Ícones do Booststrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="style.css" rel="stylesheet" />
-    <!-- Acrescenta os arquivos header e footer onde há tags com esses ids -->
-    <script>
-        $(function() {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
-    <!-- <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            var btn = document.getElementById("submit");
-            var element = document.getElementById("confirm");
-
-        // Create toast instance
-            var myToast = new bootstrap.Toast(element);
-
-        btn.addEventListener("click", function(){
-            myToast.show();
-            });
-        });
-    </script> -->
-    <title>Estoque e configurações</title>
+    <title>Hostess</title>
 </head>
 
 <body>
@@ -301,12 +281,12 @@
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Endereço de e-mail</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <label for="email2" class="form-label">Endereço de e-mail</label>
+                                <input type="email" class="form-control" id="email2" required>
                             </div>
                             <div class="mb-3">
-                                <label for="senha1" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha1" required>
+                                <label for="senha3" class="form-label">a</label>
+                                <input type="password" class="form-control" id="senha3" required>
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="check3" required>
@@ -331,7 +311,7 @@
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="produto" class="form-label">Nome do negócio</label>
+                                <label for="nome" class="form-label">Nome do negócio</label>
                                 <textarea class="form-control" id="nome" rows="1" required></textarea>
                             </div>
                             <div class="mb-3">
@@ -339,8 +319,8 @@
                                 <textarea class="form-control" id="cnpj" rows="1" required></textarea>
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="check3" required>
-                                <label class="form-check-label" for="check3">Confirmar</label>
+                                <input type="checkbox" class="form-check-input" id="check4" required>
+                                <label class="form-check-label" for="check4">Confirmar</label>
                             </div>
                             <div class="float-end">
                                 <button class="btn btn-primary" type="submit">Registrar</button>
@@ -394,8 +374,9 @@
             </button>
         </div>
     </section>
+    <div id="footer"></div>
 
-<!-- Toast
+    <!-- Toast
     <div class="toast bg-dark text-light" id="confirm">
         <div class="toast-header bg-dark">
             <strong class="me-auto text-light"><i class="bi-info-circle-fill"></i> Registro efetuado.</strong>
@@ -404,7 +385,27 @@
         <div class="toast-body">
             E-mail de confirmação enviado. Confira sua caixa de entrada.
         </div>
-    </div>
-    <div id="footer"></div> -->
+    </div> -->
+
+<!-- Acrescenta os arquivos header e footer onde há tags com esses ids -->
+    <script>
+        $(function() {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var btn = document.getElementById("submit");
+            var element = document.getElementById("confirm");
+
+        // Create toast instance
+            var myToast = new bootstrap.Toast(element);
+
+        btn.addEventListener("click", function(){
+            myToast.show();
+            });
+        });
+    </script> -->
 </body>
 </html>
