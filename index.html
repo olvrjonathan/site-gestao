@@ -38,6 +38,12 @@
         </div>
     </section>
 
+    <div class="d-flex mt-4 justify-content-center">
+        <span class="input-group-text border-3" id="borda">Envie para seus clientes:</span>
+        <span class="input-group-text border-3" id="link">https://gestao.w3spaces.com/cadastro.html</span>
+        <div class> <button class="btn btn-primary border-3" onClick="JavaScript:Copy()">Copiar</button>
+        </div>
+    </div>
 
 <!-- Modals -->
     <section>
@@ -224,6 +230,11 @@
         function Alert() {
             let name = document.getElementById("nome").value.split(" ")[0];
             alert(name+', um e-mail de confirmação não foi enviado. Confira sua caixa de entrada mesmo assim.')
+        }
+        function Copy() {
+            let link = document.getElementById("link");
+            let text = link.textContent;
+            navigator.clipboard.writeText(text);
         }
     </script>
 </body>

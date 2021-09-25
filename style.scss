@@ -32,6 +32,11 @@ body {
     height: 280px;
 }
 
+.imagens {
+    padding: 10px;
+    background-color: rgba(123,127,131,0.5);
+}
+
 #estoque {
     margin: 0 0.5% 0 0.5%;
     width: 99%;
@@ -49,8 +54,17 @@ body {
     margin-right: 30px;
 }
 
-#confirm {
-    z-index: 5;
+#link {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-right: 30px;
+}
+
+#borda {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 @media screen and (min-width: 1200px) {
@@ -84,15 +98,4 @@ h3 {
     a:hover {
         color: white;
     }
-}
-
-.imagens {
-    padding: 10px;
-    background-color: rgba(123,127,131,0.5);
-}
-
-.toast{
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
 }
