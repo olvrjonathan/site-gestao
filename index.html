@@ -20,6 +20,19 @@
             $("#footer").load("footer.html");
         });
     </script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var btn = document.getElementById("submit");
+            var element = document.getElementById("confirm");
+
+        // Create toast instance
+            var myToast = new bootstrap.Toast(element);
+
+        btn.addEventListener("click", function(){
+            myToast.show();
+            });
+        });
+    </script> -->
     <title>Estoque e configurações</title>
 </head>
 
@@ -34,7 +47,10 @@
                     <p class="lead my-3">Nós oferecemos uma maneira simples e eficaz de agendar e gerir seu negócio e facilitar a interação com o cliente.</p>
                     <div class="d-flex flex-row justify-content-center">
                         <button type="button" class="btn btn-primary btn-lg mx-3" data-bs-toggle="modal" data-bs-target="#register">Registre-se</button>
-                        <button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#sign-in">Entrar</button>
+                        <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#sign-in">Entrar</button>
+                    </div>
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-success btn-lg mx-3" data-bs-toggle="modal" data-bs-target="#business" id="register2">Registre seu negócio</button>
                     </div>
                 </div>
                 <img class="img-fluid d-none d-md-block mx-5 size-small" src="imagens/top.svg" alt="Alguma coisa" />
@@ -54,6 +70,14 @@
                     </div>
                     <div class="modal-body">
                         <form>
+                            <div class="mb-3">
+                                <label for="empresa" class="form-label">Afiliação</label>
+                                <select class="form-select" id="empresa" required>
+                                    <option selected disabled value=""></option>
+                                    <option value="1">FGV</option>
+                                    <option value="2">VASSP</option>
+                                </select>
+                            </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Endereço de e-mail</label>
                                 <input type="email" class="form-control" id="email" required>
@@ -259,7 +283,7 @@
                                 <label class="form-check-label" for="check">Eu não li, mas concordo com os Termos de Serviço</label>
                             </div>
                             <div class="float-end">
-                                <button class="btn btn-primary" type="submit">Registre-se</button>
+                                <button id="submit" class="btn btn-primary" type="submit">Registre-se</button>
                             </div>
                         </form>
                     </div>
@@ -277,19 +301,49 @@
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="email2" class="form-label">Endereço de e-mail</label>
-                                <input type="email" class="form-control" id="email2" required>
+                                <label for="email" class="form-label">Endereço de e-mail</label>
+                                <input type="email" class="form-control" id="email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="senha3" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha3" required>
+                                <label for="senha1" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha1" required>
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="check2">
-                                <label class="form-check-label" for="check2">Manter-se conectado</label>
+                                <input type="checkbox" class="form-check-input" id="check3" required>
+                                <label class="form-check-label" for="check3">Manter-se conectado</label>
                             </div>
                             <div class="float-end">
                                 <button class="btn btn-primary" type="submit">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="business" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Registrar seu negócio</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="produto" class="form-label">Nome do negócio</label>
+                                <textarea class="form-control" id="nome" rows="1" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cnpj" class="form-label">Seu CPF / CNPJ da empresa</label>
+                                <textarea class="form-control" id="cnpj" rows="1" required></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="check3" required>
+                                <label class="form-check-label" for="check3">Confirmar</label>
+                            </div>
+                            <div class="float-end">
+                                <button class="btn btn-primary" type="submit">Registrar</button>
                             </div>
                         </form>
                     </div>
@@ -340,6 +394,17 @@
             </button>
         </div>
     </section>
-    <div id="footer"></div>
+
+<!-- Toast
+    <div class="toast bg-dark text-light" id="confirm">
+        <div class="toast-header bg-dark">
+            <strong class="me-auto text-light"><i class="bi-info-circle-fill"></i> Registro efetuado.</strong>
+            <button type="button" class="btn-close-white text-light" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            E-mail de confirmação enviado. Confira sua caixa de entrada.
+        </div>
+    </div>
+    <div id="footer"></div> -->
 </body>
 </html>

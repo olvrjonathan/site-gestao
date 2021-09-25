@@ -45,6 +45,10 @@ body {
   margin-right: 30px;
 }
 
+#confirm {
+  z-index: 5;
+}
+
 @media screen and (min-width: 1200px) {
   #carousel {
     width: 75%;
@@ -71,5 +75,16 @@ h3 a {
 
 h3 a:hover {
   color: white;
+}
+
+.imagens {
+  padding: 10px;
+  background-color: rgba(123, 127, 131, 0.5);
+}
+
+.toast {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 /*# sourceMappingURL=style.css.map */
