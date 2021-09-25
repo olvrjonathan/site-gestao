@@ -8,25 +8,25 @@ A comunicação Empresa-Sistema seria feita pelo site. No site, após a empresa 
 
 O site possui vantagens como:
 
--Agendamento de serviços
+* Agendamento de serviços
 Através do nosso serviço é possível criar uma sistema de cadastro onde
 seus clientes serão capazes de registrar suas informações em um banco de dados e
 reservar seu agendamento.
 
--Independência Física
+* Independência Física
 Todo o serviço será online, dispensando a necessidade da presença do cliente em
 um local para agendar seu horário.
 
--Economia de Tempo
+* Economia de Tempo
 Os que utilizarem este produto economizarão muito tempo pois serão capazes de
 lidar com inúmeros clientes através de um chat automático.
 
--Economia de Dinheiro
+* Economia de Dinheiro
 Normalmente agendamentos funcionam integrados ao site do serviço, mas com o nosso
 produto um site não é necessário e qualquer empresa terá oportunidade de iniciar
 seu negócio com menores investimentos financeiros.
 
--Organização eficaz de dados
+* Organização eficaz de dados
 Quem contratar nosso serviço poderá organizar facilmente o agendamento de seus
 clientes manuseando os dados obtidos dos cadastros.
 
@@ -37,6 +37,6 @@ No github, foram feitos branchs para a contribuição individual dos membros sem
 Link do W3spaces: https://gestao.w3spaces.com/
 
 Foto da página home do site.
-![Página incial do site](C:\Users\carri\OneDrive\Documentos\GitHub\site-gestao\imagens\home-hostess.png)
+![Página incial do site](imagens\home-hostess.png)
 
 
