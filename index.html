@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- Permite o header em todas as páginas -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Ícones do Booststrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="style.css" rel="stylesheet" />
+    <!-- Acrescenta os arquivos header e footer onde há tags com esses ids -->
     <script>
         $(function() {
             $("#header").load("header.html");
@@ -21,7 +26,7 @@
 <body>
 <!-- Página inicial -->
     <div id="header"></div>
-    <section class="bg-dark text-light p-5 text-center mt-5">
+    <section class="bg-dark text-light p-5 text-center">
         <div class="container">
             <div class="d-md-flex flex-row align-items-center justify-content-between">
                 <div class="w-50 btn-custom">
@@ -44,7 +49,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Registro</h5>
+                        <h4 class="modal-title">Registro</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -253,13 +258,10 @@
                                 <input type="checkbox" class="form-check-input" id="check" required>
                                 <label class="form-check-label" for="check">Eu não li, mas concordo com os Termos de Serviço</label>
                             </div>
-                            <div>
-                                <button class="btn btn-primary ms-auto" type="submit">Registre-se</button>
+                            <div class="float-end">
+                                <button class="btn btn-primary" type="submit">Registre-se</button>
                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
@@ -269,7 +271,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Entrar</h5>
+                        <h4 class="modal-title">Entrar</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -286,29 +288,57 @@
                                 <input type="checkbox" class="form-check-input" id="check2">
                                 <label class="form-check-label" for="check2">Manter-se conectado</label>
                             </div>
-                            <div>
-                                <button class="btn btn-primary ms-auto" type="submit">Entrar</button>
+                            <div class="float-end">
+                                <button class="btn btn-primary" type="submit">Entrar</button>
                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <p class="mx-5 mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel ullamcorper enim. Sed aliquam aliquam mi, quis vulputate lorem commodo id. Sed et commodo mauris. Vestibulum in nisl eget arcu ornare malesuada. Sed aliquam elit a erat sodales, et pretium ligula molestie. Maecenas pellentesque fringilla ipsum, non consectetur purus eleifend id. In consequat justo et ex tristique, venenatis volutpat nibh lobortis. Quisque in ornare est. Quisque commodo vitae urna sed efficitur. Integer at enim eu mauris ultrices interdum in et dolor. Cras scelerisque rhoncus ligula eu mattis. Sed faucibus ex ornare leo maximus ullamcorper. Praesent consectetur, quam sit amet viverra efficitur, eros justo porta eros, vitae fermentum ligula nisi non elit. </p>
+    <h3 class="text-center mt-4 mb-2">Ao usar nosso serviço, você tem os seguintes benefícios:</h3>
 
-        <p class="mx-5">Morbi finibus cursus ipsum vel scelerisque. Quisque ut libero non nisi rutrum posuere. Nullam justo nibh, ultricies non eros eget, porta sagittis lectus. Nunc volutpat sed eros non bibendum. Aliquam condimentum risus ligula, nec vulputate leo placerat at. Aliquam eros velit, rhoncus vel imperdiet sed, hendrerit id lacus. Nam tempus vel ex elementum efficitur. In vitae est eu sem consequat ultrices eleifend quis augue. Donec lorem sem, tempor et suscipit non, vestibulum sit amet velit. Sed iaculis auctor elit, ac laoreet tellus consectetur sed. Sed ultricies pellentesque velit, ac feugiat risus facilisis vel. Ut ut bibendum justo. Duis faucibus lectus eget sapien tincidunt, id placerat ante fringilla. Aenean aliquet ante elementum, scelerisque purus eu, lacinia arcu. Pellentesque tincidunt metus et lectus semper auctor. Pellentesque venenatis pellentesque interdum.</p>
-            
-        <p class="mx-5">Aliquam non felis commodo, consectetur metus in, hendrerit sem. Sed suscipit ligula id eros ultricies mattis. Praesent mattis diam mollis sem tincidunt rutrum. In varius felis id malesuada feugiat. Proin laoreet mollis quam. Cras ac aliquam orci, at ullamcorper erat. Proin condimentum tortor ligula, a consequat arcu suscipit et. Duis sed luctus ante, ac venenatis sapien. Nam lobortis elit purus, sit amet posuere urna vulputate quis. Fusce interdum quis tellus sed ultrices. Pellentesque et dolor elementum, tincidunt dui quis, varius ipsum. Praesent imperdiet est tellus, nec rutrum magna commodo sed. Integer et ipsum dolor. In feugiat, odio eget dignissim euismod, lectus nibh aliquet ipsum, nec ultrices diam risus nec est. Proin luctus magna id faucibus imperdiet. Donec laoreet ligula semper est facilisis, in iaculis turpis dignissim.</p>
-            
-        <p class="mx-5">Pellentesque erat massa, tincidunt vitae risus quis, finibus commodo leo. Ut quis tincidunt nulla. Donec eleifend id arcu eget tincidunt. Vestibulum facilisis eget metus et rutrum. Aliquam nec auctor quam. In hendrerit, urna at porttitor accumsan, massa orci sodales ligula, a pulvinar orci urna scelerisque metus. Nulla facilisi. In hac habitasse platea dictumst. In sit amet ligula felis. Proin et elit sed erat placerat condimentum. Nullam semper pulvinar porta. Etiam rhoncus, ante sit amet vehicula feugiat, mauris libero porta mauris, ac malesuada nisi nulla in ex. Sed suscipit arcu non luctus varius. Vestibulum eu congue eros. Integer congue enim eu urna fermentum, vehicula volutpat nulla semper. Pellentesque vitae urna iaculis quam efficitur fringilla.</p>
-            
-        <p class="mx-5">Pellentesque tempor dui sed lectus volutpat, vel luctus nisl placerat. Integer ut ipsum eget nulla fringilla finibus at a elit. Duis commodo maximus sem, quis cursus sapien tempus at. Aliquam vel nibh luctus, blandit massa vel, congue purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec id nisi sit amet magna ornare consequat in in sem. Proin vitae commodo turpis, quis lobortis elit. Vivamus sollicitudin lacus id arcu semper, a vulputate neque posuere.</p>
+    <section class="m-auto">
+        <div id="carousel" class="carousel carousel-dark slide m-auto w-75" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imagens/carousel1.png" class="d-block img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Configurações</h5>
+                        <p>Na verdade não fazem nada.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/carousel2.svg" class="d-block img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Slide em construção</h5>
+                        <p>Amanhã eu termino.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="imagens/carousel3.png" class="d-block img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Tabela em construção</h5>
+                        <p>Eu termino depois do slide anterior.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
     </section>
     <div id="footer"></div>
 </body>

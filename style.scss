@@ -23,16 +23,6 @@ $font-stack: Arial, Helvetica, sans-serif;
     font-size: 100px;
 }
 
-.navbar-dark {
-    .navbar-brand {
-        font-size: 30px;
-    }
-}
-
-.page-top {
-    margin-top: 65px;
-}
-
 .card-custom {
     position: relative;
     height: 250px;
@@ -53,6 +43,19 @@ h3 {
 }
 
 #estoque {
-    margin: 100px 0.5% 0 0.5%;
+    margin: 0 0.5% 0 0.5%;
     width: 99%;
+}
+
+#carousel {
+    height: 600px;
+}
+
+#logo {
+    height: 83px;
+    width: 160px;
+}
+
+#header {
+    height: 80px;
 }
