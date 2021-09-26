@@ -7,6 +7,8 @@ $font-stack: Arial, Helvetica, sans-serif;
     font-family: $font-stack;
 }
 
+@import 'agendastyle';
+
 #main {
     padding-top: 72px;
 }

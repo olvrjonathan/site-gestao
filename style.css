@@ -3,6 +3,148 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.content-table {
+  border-collapse: collapse;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.content-table thead tr {
+  background-color: #d1b9bb;
+  color: #ffffff;
+  font-family: verdana;
+  font-weight: bold;
+}
+
+.content-table th {
+  padding: 20px 45px;
+  font-family: verdana;
+}
+
+.content-table td {
+  padding: 30px 45px;
+  font-family: verdana;
+  color: #737373;
+}
+
+.content-table tbody tr {
+  border-bottom: 1.1px solid #f0f0f0;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f5f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 3px solid #d1b9bb;
+}
+
+/*
+
+@import 'agendastyle';
+
+ //Cores Principais Site:
+    $darkblack: #0D0B0B;
+    $darkgray: #241F1E;
+    $silver: #D4CFCD;
+    $shinyorange: #D14707;
+    $maybebrown: #4A1600;
+
+*{
+    margin:2;
+    padding:2;
+    box-sizing:border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: $darkblack;
+}
+
+.navegation{
+    background-color: $darkblack;
+}
+
+h1 {
+    font-family: verdana;
+    text-align:center; 
+    background-color: $maybebrown; 
+    padding: 15px; 
+    margin-top: 60px; 
+    color:$silver
+}
+
+.center{
+    display: flex;
+    flex-wrap:wrap;
+    max-width: 1920px;
+    
+    padding:0 2%;
+}
+ 
+header{
+    padding:20px 0;
+
+}
+
+
+.menu{
+    width: 60%;
+    text-align: left;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-left: 300px;
+}
+
+.menu a{
+    color: $silver;
+    text-decoration:none;
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+.menu:after{
+    content: ' ';
+display: block;
+width: 100%;
+height: 2px;
+margin-top: 10px;
+background: -webkit-linear-gradient(left, $darkgray 0%,$maybebrown 15%,$shinyorange 53%,$maybebrown 85%,$darkgray 100%);
+background: linear-gradient(left, $darkgray 0%,$maybebrown 15%,$shinyorange 53%,$maybebrown 85%,$darkgray 100%);
+}
+
+.logo{
+    width: 20%;
+    margin-top:0;
+}
+
+.logo_imagem{
+    width:30%;
+    margin-left: 100px;
+}
+
+.button1 {
+    background-color: #dbdbdb;
+    width:19.75%;
+    border: none;
+    color: rgb(104, 104, 104);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+    .button1 {
+    transition-duration: 0.4s;
+    }
+
+    .button1:hover {
+    background-color: #ababab;  
+    color: white;
+    }
+
+*/
 #main {
   padding-top: 72px;
 }
