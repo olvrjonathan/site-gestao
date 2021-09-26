@@ -3,7 +3,6 @@ $favorite-color: #0E163C;
 $font-stack: Arial, Helvetica, sans-serif;
 $graph_color: rgba(168, 168, 168, 0.767);
 $light_gray:rgba(169, 169, 169, 0.877);
-$gray: gray;
 $theme_purple:#6c63ff;
 $white: #f0f0f0;
 /* 576, 768, 992, 1200 */
@@ -32,14 +31,13 @@ $white: #f0f0f0;
     height: 280px;
 }
 
+.card-custom:hover {
+    bottom: 5px;
+}
+
 .imagens {
     padding: 10px;
     background-color: $graph_color;
-}
-
-#estoque {
-    margin: 0 0.5% 0 0.5%;
-    width: 99%;
 }
 
 #colab {
