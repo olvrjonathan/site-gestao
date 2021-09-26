@@ -1,18 +1,10 @@
-h2 a {
-  text-decoration: none;
-}
-
-h2 a:hover {
-  text-decoration: none;
-}
-
+/* 576, 768, 992, 1200 */
 * {
-  /* color: $favorite-color; */
   font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  padding-top: 72px;
+  padding: 72px;
 }
 
 .size-small {
@@ -63,6 +55,13 @@ body {
   border-bottom-right-radius: 0;
 }
 
+@media screen and (min-width: 992px) {
+  #top {
+    background: url("imagens/schedule.svg") no-repeat fixed center;
+    background-size: 25%;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   #carousel {
     width: 75%;
@@ -80,6 +79,14 @@ body {
   body {
     padding-top: 76px;
   }
+}
+
+h2 a {
+  text-decoration: none;
+}
+
+h2 a:hover {
+  text-decoration: none;
 }
 
 h3 a {
