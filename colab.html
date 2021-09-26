@@ -19,14 +19,14 @@
 	
 	<body id="main">
 		<div id="header"></div>
-		<div class="mx-4">
+		<div class="text-center">
 			<h1>Colaboradores</h1>
 		</div>
 		
 		<br>
 		<br>
 		
-		<table class="table mx-4">
+		<table id="colab" class="table mx-4">
 			<thead>
 				<tr>
 					<th scope="col">Colaborador</th>
@@ -61,8 +61,55 @@
 		<br>
 		
 		<div class="d-grid gap-2 col-6 mx-auto">
-			<button onclick="document.location='add_colaborador.html'" class="btn btn-dark">Adicionar Colaboradores</button>
+			<button data-bs-toggle="modal" data-bs-target="#add" class="btn btn-secondary mb-3">Adicionar Colaboradores</button>
 		</div>
+
+		<div class="modal fade" id="add" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Adicionar colaboradores</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-2">
+								<label for="name" class="form-label">Nome Completo:</label>
+								<input type="text" class="form-control" id="name" required>
+							</div>
+							
+							<div class="mb-2">
+								<label for="cpf" class="form-label">CPF:</label>
+								<input type="tel" class="form-control" id="cpf" required>
+							</div>
+					
+							<div class="mb-2">
+								<label for="email" class="form-label">E-mail:</label>
+								<input type="email" class="form-control" id="email" required>
+							</div>
+						
+							<div class="mb-2">	
+								<label for="password" class="form-label">Senha:</label>
+								<input type="password" class="form-control" id="password" required>
+							</div>
+					
+							<div class="mb-2">
+								<label for="date" class="form-label">Data de nascimento:</label>
+								<input type="date" class="form-control" id="date" required>
+							</div>
+							<div class="mb-2">
+								<label for="imagem" class="form-label">Adicione uma foto de perfil:</label>
+								<input type="file" class="form-control" id="imagem">
+							</div>
+							<div>
+								<button type="submit" class="btn btn-success float-end mt-2">Concluir</button>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 	<div id="footer"></div>
 	<script>
         $(function() {
