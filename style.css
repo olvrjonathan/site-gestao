@@ -1,8 +1,10 @@
+@charset "UTF-8";
 /* 576, 768, 992, 1200 */
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* SCSS da tabela da página Agenda (agenda.html)*/
 .content-table {
   border-collapse: collapse;
   margin-top: 60px;
