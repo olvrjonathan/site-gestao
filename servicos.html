@@ -2,8 +2,11 @@
 <html lang="pt-br">
 	<head>
 		<meta charset "UTF-8" />
+
+		<!-- Título da janela -->
 		<title>Serviços</title>
 		
+		<!-- CSS Bootstrap -->
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,18 +23,24 @@
 	</head>
 	
 	<body id="main">
+		<!-- Título da página -->
 		<div id="header"></div>
 		<div class="mx-4">
 			<h1>Serviços</h1>
 		</div>
 		
 		<br>
+
+		<!-- Cria cards formatados como containers e separados em linhas e colunas -->
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\corte_masc.jpg" class="card-img-top" alt="..." height="200px">
+
+						<!-- Topo do card com uma imagem -->
+						<a href="add_servicos.html"><img src="imagens\corte_masc.jpg" class="card-img-top" alt="..." height="200px"></a>
 						
+						<!-- Corpo do card com as informações do serviço -->
 						<div class="card-body">
 							<h5 class="card-title">Corte Masculino</h5>
 							<p class="card-text">Preço: R$144,10</p>
@@ -42,7 +51,7 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\corte_fem.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html"><img src="imagens\corte_fem.jpg" class="card-img-top" alt="..." height="200px"></a>
 						
 						<div class="card-body">
 							<h5 class="card-title">Corte Feminino</h5>
@@ -54,7 +63,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\barba.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html">
+							<img src="imagens\barba.jpg" class="card-img-top" alt="..." height="200px">
+						</a>
 						
 						<div class="card-body">
 							<h5 class="card-title">Barba Modelada</h5>
@@ -66,7 +77,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\pintura.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html">
+							<img src="imagens\pintura.jpg" class="card-img-top" alt="..." height="200px">
+						</a>
 						
 						<div class="card-body">
 							<h5 class="card-title">Coloração</h5>
@@ -78,7 +91,10 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\cabelo.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html">
+							<img src="imagens\cabelo.jpg" class="card-img-top" alt="..." height="200px">
+						</a>
+						
 						
 						<div class="card-body">
 							<h5 class="card-title">Permanente</h5>
@@ -90,7 +106,10 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\hidratacao.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html">
+						<img src="imagens\hidratacao.jpg" class="card-img-top" alt="..." height="200px">	
+						</a>
+						
 						
 						<div class="card-body">
 							<h5 class="card-title">Hidratação</h5>
@@ -102,7 +121,10 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\manicure.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html">
+						<img src="imagens\manicure.jpg" class="card-img-top" alt="..." height="200px">	
+						</a>
+						
 						
 						<div class="card-body">
 							<h5 class="card-title">Manicure Pacote</h5>
@@ -114,7 +136,10 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\tatuagem.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html">
+							<img src="imagens\tatuagem.jpg" class="card-img-top" alt="..." height="200px">
+						</a>
+						
 						
 						<div class="card-body">
 							<h5 class="card-title">Tatuagem</h5>
@@ -126,7 +151,10 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<img src="Imagens serviços\sobrancelha.jpg" class="card-img-top" alt="..." height="200px">
+						<a href="add_servicos.html">
+							<img src="imagens\sobrancelha.jpg" class="card-img-top" alt="..." height="200px">
+						</a>
+						
 						
 						<div class="card-body">
 							<h5 class="card-title">Sobrancelhas</h5>
@@ -137,6 +165,13 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Botão que leva à página de adicionar serviços -->
+		<div class="d-grid gap-2 col-6 mx-auto">
+			<button onclick="document.location='add_servicos.html'" class="btn btn-dark">Adicionar Serviços</button>
+		</div>
+		<br>
+
 	<div id="footer"></div>
 	<script>
         $(function() {
