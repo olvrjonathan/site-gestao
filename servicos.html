@@ -40,7 +40,9 @@
 					<div class="card my-4" style="width: 18rem;">
 
 						<!-- Topo do card com uma imagem -->
-						<a href="add_servicos.html"><img src="imagens\corte_masc.jpg" class="card-img-top" alt="..." height="200px"></a>
+						<button data-bs-toggle="modal" data-bs-target="#add">
+							<img src="imagens\corte_masc.jpg" class="card-img-top" alt="..." height="200px">
+						</button>
 						
 						<!-- Corpo do card com as informações do serviço -->
 						<div class="card-body">
@@ -53,7 +55,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html"><img src="imagens\corte_fem.jpg" class="card-img-top" alt="..." height="200px"></a>
+						<button data-bs-toggle="modal" data-bs-target="#add">
+							<img src="imagens\corte_fem.jpg" class="card-img-top" alt="..." height="200px">
+						</button>
 						
 						<div class="card-body">
 							<h5 class="card-title">Corte Feminino</h5>
@@ -65,9 +69,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html">
+						<button data-bs-toggle="modal" data-bs-target="#add">
 							<img src="imagens\barba.jpg" class="card-img-top" alt="..." height="200px">
-						</a>
+						</button>
 						
 						<div class="card-body">
 							<h5 class="card-title">Barba Modelada</h5>
@@ -79,9 +83,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html">
+						<button data-bs-toggle="modal" data-bs-target="#add">
 							<img src="imagens\pintura.jpg" class="card-img-top" alt="..." height="200px">
-						</a>
+						</button>
 						
 						<div class="card-body">
 							<h5 class="card-title">Coloração</h5>
@@ -93,9 +97,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html">
+						<button data-bs-toggle="modal" data-bs-target="#add">
 							<img src="imagens\cabelo.jpg" class="card-img-top" alt="..." height="200px">
-						</a>
+						</button>
 						
 						
 						<div class="card-body">
@@ -108,9 +112,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html">
+						<button data-bs-toggle="modal" data-bs-target="#add">
 						<img src="imagens\hidratacao.jpg" class="card-img-top" alt="..." height="200px">	
-						</a>
+						</button>
 						
 						
 						<div class="card-body">
@@ -123,9 +127,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html">
+						<button data-bs-toggle="modal" data-bs-target="#add">
 						<img src="imagens\manicure.jpg" class="card-img-top" alt="..." height="200px">	
-						</a>
+						</button>
 						
 						
 						<div class="card-body">
@@ -138,9 +142,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html">
+						<button data-bs-toggle="modal" data-bs-target="#add">
 							<img src="imagens\tatuagem.jpg" class="card-img-top" alt="..." height="200px">
-						</a>
+						</button>
 						
 						
 						<div class="card-body">
@@ -153,9 +157,9 @@
 				
 				<div class="col">
 					<div class="card my-4" style="width: 18rem;">
-						<a href="add_servicos.html">
+						<button data-bs-toggle="modal" data-bs-target="#add"> 
 							<img src="imagens\sobrancelha.jpg" class="card-img-top" alt="..." height="200px">
-						</a>
+						</button>
 						
 						
 						<div class="card-body">
@@ -168,10 +172,52 @@
 			</div>
 		</div>
 
-		<!-- Botão que leva à página de adicionar serviços -->
+		<!-- Botão que leva à página de adicionar colaboradores -->
 		<div class="d-grid gap-2 col-6 mx-auto">
-			<button onclick="document.location='add_servicos.html'" class="btn btn-dark">Adicionar Serviços</button>
+			<button data-bs-toggle="modal" data-bs-target="#add" class="btn btn-secondary mb-3">Adicionar Serviço</button>
 		</div>
+
+		<div class="modal fade" id="add" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Adicionar/Editar serviço</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!-- Inserir o nome do serviço no form (coluna tamanho 12) -->
+							<div class="col-12">
+								<label for="servico" class="form-label">Serviço:</label>
+								<input type="text" class="form-control" id="servico">
+							</div>
+							
+							<!-- Inserir o preço do serviço no form (coluna tamanho 12) -->
+							<div class="col-12">
+								<label for="servico" class="form-label">Preço (R$):</label>
+								<input type="text" class="form-control" id="servico">
+							</div>
+							
+							<!-- Inserir a duração do serviço no form (coluna tamanho 12) -->
+							<div class="col-12">
+								<label for="servico" class="form-label">Duração (Ex.: 30min):</label>
+								<input type="text" class="form-control" id="servico">
+							</div>
+							
+							<!-- Inserir um arquivo no form (coluna tamanho 12) -->
+							<div class="col-md-12">
+								<label for="imagem" class="form-label">Adicione uma imagem para o serviço:</label>
+								<input type="file" class="form-control" id="imagem">
+							</div>
+							<div>
+								<button type="submit" class="btn btn-success float-end mt-2">Concluir</button>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 		<br>
 
 	<div id="footer"></div>

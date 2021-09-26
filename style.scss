@@ -1,12 +1,18 @@
+//Cores e fontes Site:
 $favorite-color: #0E163C;
 $font-stack: Arial, Helvetica, sans-serif;
-
+$graph_color: rgba(168, 168, 168, 0.767);
+$light_gray:rgba(169, 169, 169, 0.877);
+$gray: gray;
+$theme_purple:#6c63ff;
+$white: #f0f0f0;
 /* 576, 768, 992, 1200 */
 
 * {
     font-family: $font-stack;
 }
 
+//Importando codigos do arquivo _agendastyle.scss
 @import 'agendastyle';
 
 #main {
@@ -28,7 +34,7 @@ $font-stack: Arial, Helvetica, sans-serif;
 
 .imagens {
     padding: 10px;
-    background-color: rgba(123,127,131,0.5);
+    background-color: $graph_color;
 }
 
 #estoque {
@@ -104,9 +110,9 @@ h2 {
 h3 {
     a {
         text-decoration: none;
-        color: #adb5bd;
+        color: $light_gray;
     }
     a:hover {
-        color: white;
+        color: $white;
     }
 }
