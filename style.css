@@ -58,9 +58,13 @@
   font-size: 100px;
 }
 
+.card-settings {
+  height: 280px;
+}
+
 .card-custom {
   position: relative;
-  height: 280px;
+  cursor: pointer;
 }
 
 .card-custom:hover {

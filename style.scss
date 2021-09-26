@@ -1,8 +1,9 @@
-//Cores e fontes Site:
+// Cores e fontes Site:
 $favorite-color: #0E163C;
 $font-stack: Arial, Helvetica, sans-serif;
 $graph_color: rgba(168, 168, 168, 0.767);
 $light_gray:rgba(169, 169, 169, 0.877);
+$gray: gray;
 $theme_purple:#6c63ff;
 $white: #f0f0f0;
 /* 576, 768, 992, 1200 */
@@ -11,7 +12,7 @@ $white: #f0f0f0;
     font-family: $font-stack;
 }
 
-//Importando codigos do arquivo _agendastyle.scss
+// Importando código do arquivo _agendastyle.scss
 @import 'agendastyle';
 
 #main {
@@ -26,9 +27,13 @@ $white: #f0f0f0;
     font-size: 100px;
 }
 
+.card-settings {
+    height: 280px;
+}
+
 .card-custom {
     position: relative;
-    height: 280px;
+    cursor: pointer;
 }
 
 .card-custom:hover {
@@ -73,7 +78,7 @@ $white: #f0f0f0;
 @media screen and (min-width: 992px) {
     #top {
     background: url("imagens/schedule.svg") no-repeat fixed center;
-    background-size: 25%
+    background-size: 25%;
     }
 }
 
