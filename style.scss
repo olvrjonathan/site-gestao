@@ -7,8 +7,8 @@ $font-stack: Arial, Helvetica, sans-serif;
     font-family: $font-stack;
 }
 
-body {
-    padding: 72px;
+#main {
+    padding-top: 72px;
 }
 
 .size-small {
@@ -80,7 +80,7 @@ body {
 }
 
 @media screen and (min-width: 992px) {
-    body {
+    #main {
         padding-top: 76px;
     }
 }
