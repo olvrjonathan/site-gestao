@@ -20,8 +20,10 @@
 <!-- Página inicial -->
     <div id="header"></div>
     <section class="bg-dark text-light p-5 text-center">
+    <!-- Fundo escuro e texto claro -->
         <div class="container">
             <div class="d-md-flex flex-row align-items-center justify-content-between">
+            <!-- Posiciona os elementos lado a lado -->
                 <div>
                     <h1>Faça a gestão do seu negócio</h1>
                     <p class="lead my-3">Nós oferecemos uma maneira simples e eficaz de agendar e gerir seu negócio e facilitar a interação com o cliente.</p>
@@ -34,18 +36,21 @@
                     </div>
                 </div>
                 <img class="img-fluid d-none d-md-block mx-5 size-small" src="imagens/top.svg" alt="Alguma coisa" />
+                <!-- Faz com que a imagem não apareça em telas menores -->
             </div>
         </div>
     </section>
 
     <div class="d-flex mt-4 justify-content-center">
+    <!-- Implementa um botão que copia o link do site destinado a clientes -->
         <span class="input-group-text border-3" id="borda">Envie para seus clientes:</span>
         <span class="input-group-text border-3" id="link">https://gestao.w3spaces.com/cadastro.html</span>
         <div class> <button class="btn btn-primary border-3" onClick="JavaScript:Copy()">Copiar</button>
         </div>
     </div>
 
-<!-- Modals -->
+<!-- Modals ativados por botões e usados para registro e login,
+    não permitem interação com o restante da página antes de serem fechados -->
     <section>
         <div class="modal fade" id="register" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -56,10 +61,11 @@
                     </div>
                     <div class="modal-body">
                         <form onSubmit="JavaScript:Alert()">
+                        <!-- Exibe um alerta que confirma o registro ao enviar os dados -->
                             <div class="mb-2">
                                 <label for="empresa" class="form-label">Afiliação</label>
                                 <select class="form-select" id="empresa" required>
-                                    <option selected disabled value=""></option>
+                                    <option selected disabled value="">⠀</option>
                                     <option value="1">FGV</option>
                                     <option value="2">VASSP</option>
                                 </select>
@@ -164,6 +170,8 @@
         </div>
     </section>
 
+<!-- Carousel que muda as dimensões conforme o tamanho da tela por especificações em CSS,
+    possui botões de navegação -->
     <h3 class="text-center my-4">Ao usar nosso serviço, você tem os seguintes benefícios:</h3>
 
     <section class="m-auto">
@@ -207,17 +215,6 @@
         </div>
     </section>
     <div id="footer"></div>
-
-    <!-- Toast
-    <div class="toast bg-dark text-light" id="confirm">
-        <div class="toast-header bg-dark">
-            <strong class="me-auto text-light"><i class="bi-info-circle-fill"></i> Registro efetuado.</strong>
-            <button type="button" class="btn-close-white text-light" data-bs-dismiss="toast"></button>
-        </div>
-        <div id="custom" class="toast-body">
-            , um e-mail de confirmação enviado. Confira sua caixa de entrada.
-        </div>
-    </div> -->
 
 <!-- Acrescenta os arquivos header e footer onde há tags com esses ids -->
     <script>

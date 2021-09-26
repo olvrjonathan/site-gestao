@@ -19,7 +19,7 @@
 <body id="main">
     <div id="header"></div>
 
-<!-- Cards -->
+<!-- Cards com âncoras "esticadas" por toda sua extensão, que abrem modals -->
     <section class="p-5">
         <div class="container">
             <div class="row text-center">
@@ -63,7 +63,7 @@
         </div>
     </section>
 
-<!-- Modals -->
+<!-- Modals que algum dia serão usados para interagir com aspectos das páginas ou com dados do usuário -->
     <div class="modal fade" id="dados" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -73,31 +73,31 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label" for="arquivo">Foto de perfil</label>
                             <input type="file" class="form-control" id="arquivo" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="email3" class="form-label">Endereço de e-mail</label>
                             <input type="email" class="form-control" id="email3">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="cpf" class="form-label">CPF</label>
                             <input type="text" class="form-control" id="cpf">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="senha4" class="form-label">Senha</label>
                             <input type="password" class="form-control" id="senha4">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="senha5" class="form-label">Confirmar senha</label>
                             <input type="password" class="form-control" id="senha5">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label for="data2" class="form-label">Data de nascimento</label>
                             <input type="date" class="form-control" id="data2" required>
                         </div>
-                        <div class="mb-3 form-check">
+                        <div class="mb-2 form-check">
                             <input type="checkbox" class="form-check-input" id="check3" required>
                             <label class="form-check-label" for="check3">Tem certeza de que deseja fazer as alterações?</label>
                         </div>
@@ -145,7 +145,7 @@
     </div>
 
 
-<!-- FAQ -->
+<!-- Accordion que algum dia terá perguntas de verdade -->
     <section class='p-5'>
         <div class="container">
             <h2 class="text-center mb-4">Perguntas frequentes</h2>
@@ -177,7 +177,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q3">
-                        Como eu defino um padrão pra nomear classes?
+                        Como eu defino um padrão pra nomear classes e ids?
                         </button>
                     </h2>
                     <div id="Q3" class="accordion-collapse collapse" data-bs-parent="#accordion">
