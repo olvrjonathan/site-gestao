@@ -2,10 +2,27 @@
 $favorite-color: #0E163C;
 $font-stack: Arial, Helvetica, sans-serif;
 $graph_color: rgba(168, 168, 168, 0.767);
-$light_gray:rgba(169, 169, 169, 0.877);
+$light-gray:rgba(169, 169, 169, 0.877);
 $gray: gray;
 $theme_purple:#6c63ff;
 $white: #f0f0f0;
+
+%no-link {
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+// Remove a borda do lado especificado, fazendo com que ela se conecte com outra
+@mixin border($side) {
+    border-#{$side}: 0;
+    border-top-#{$side}-radius: 0;
+    border-bottom-#{$side}-radius: 0;
+}
+
 /* 576, 768, 992, 1200 */
 
 * {
@@ -15,6 +32,7 @@ $white: #f0f0f0;
 // Importando código do arquivo _agendastyle.scss
 @import 'agendastyle';
 
+// Evita sobreposição da barra de navegação
 #main {
     padding-top: 72px;
 }
@@ -31,6 +49,7 @@ $white: #f0f0f0;
     height: 280px;
 }
 
+// Faz com que o card inteiro seja uma âncora
 .card-custom {
     position: relative;
     cursor: pointer;
@@ -63,25 +82,23 @@ $white: #f0f0f0;
 }
 
 #link {
-    border-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    @include border(left);
     padding-right: 30px;
 }
 
 #borda {
-    border-right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    @include border(right);
 }
 
+// Mostra a imagem apeas em telas suficientemente grandes para não prejudicar a visibilidade dos elementos
 @media screen and (min-width: 992px) {
-    #top {
+    #back {
     background: url("imagens/schedule.svg") no-repeat fixed center;
     background-size: 25%;
     }
 }
 
+// Faz com que o carousel não ocupe a tela inteira em telas menores
 @media screen and (min-width: 1200px) {
     #carousel {
       width: 75%;
@@ -93,12 +110,9 @@ $white: #f0f0f0;
       width: 100%;
       height: 75%;
     }
-    #estoque {
-        width: 100%;
-        margin: 0;
-    }
 }
 
+// Evita que a barra de navegação que aumenta por motivos desconhecidos sobreponha elementos em telas grandes
 @media screen and (min-width: 992px) {
     #main {
         padding-top: 76px;
@@ -106,20 +120,19 @@ $white: #f0f0f0;
 }
 
 h2 {
+    @extend %no-link;
     a {
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: none;
+        color: black;
+        font-size: 22px;
     }
 }
 
 h3 {
+    @extend %no-link;
     a {
-        text-decoration: none;
-        color: $light_gray;
+        color: $light-gray;
     }
     a:hover {
-        color: $white;
+        color:white;
     }
 }

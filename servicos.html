@@ -19,6 +19,7 @@
 		<!-- Ícones do Booststrap-->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 		<link href="style.css" rel="stylesheet">
+		<link rel="icon" href="imagens/favicon.ico">
 		<title>Hostess</title>
 	</head>
 	
@@ -36,35 +37,30 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card1" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 
 						<!-- Topo do card com uma imagem -->
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
-								<img src="imagens\corte_masc.jpg" class="card-img-top" alt="..." height="200px">
-							</a>
+							<img src="imagens\corte_masc.jpg" class="card-img-top" alt="..." height="200px">
 						</div>
 						
 						<!-- Corpo do card com as informações do serviço -->
-						<div class="card-body text-center">
-							<h5 card-title">Corte Masculino</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor1" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Corte Masculino</a></h2>
 							<p class="card-text">Preço: R$ 144,10 <br>
 							Duração: 30 min</p>
-							</ul>
 						</div>
 					</div>
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card2" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
-								<img src="imagens\corte_fem.jpg" class="card-img-top" alt="..." height="200px">
-							</a>
+							<img src="imagens\corte_fem.jpg" class="card-img-top" alt="..." height="200px">
 						</div>
 						
-						<div class="card-body text-center">
-							<h5 class="card-title">Corte Feminino</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor2" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)"">Corte Feminino</a></h2>
 							<p class="card-text">Preço: R$ 254,70 <br>
 							Duração: 30 min</p>
 						</div>
@@ -72,15 +68,13 @@
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card3" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
-								<img src="imagens\barba.jpg" class="card-img-top" alt="..." height="200px">
-							</a>
+							<img src="imagens\barba.jpg" class="card-img-top" alt="..." height="200px">
 						</div>
 						
-						<div class="card-body text-center">
-							<h5 class="card-title">Barba Modelada</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor3" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Barba Modelada</a></h2>
 							<p class="card-text">Preço: R$ 38,30 <br>
 							Duração: 30 min</p>
 						</div>
@@ -88,15 +82,13 @@
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card4" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
-								<img src="imagens\pintura.jpg" class="card-img-top" alt="..." height="200px">
-							</a>
+							<img src="imagens\pintura.jpg" class="card-img-top" alt="..." height="200px">
 						</div>
 
-						<div class="card-body text-center">
-							<h5 class="card-title">Coloração</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor4" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Coloração</a></h2>
 							<p class="card-text">Preço: R$ 228,80 <br>
 							Duração: 30 min</p>
 						</div>
@@ -104,15 +96,13 @@
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card5" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
-								<img src="imagens\cabelo.jpg" class="card-img-top" alt="..." height="200px">
-							</a>
+							<img src="imagens\cabelo.jpg" class="card-img-top" alt="..." height="200px">
 						</div>
 						
-						<div class="card-body">
-							<h5 class="card-title">Permanente</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor5" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Permanente</a></h2>
 							<p class="card-text">Preço: R$ 153,20 <br>
 							Duração: 30min</p>
 						</div>
@@ -120,15 +110,13 @@
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card6" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
 							<img src="imagens\hidratacao.jpg" class="card-img-top" alt="..." height="200px">	
-							</a>
 						</div>
 						
-						<div class="card-body text-center">
-							<h5 class="card-title">Hidratação</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor6" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Hidratação</a></h2>
 							<p class="card-text">Preço: R$ 121,50 <br>
 							Duração: 30 min</p>
 						</div>
@@ -136,15 +124,13 @@
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card7" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
 							<img src="imagens\manicure.jpg" class="card-img-top" alt="..." height="200px">	
-							</a>
 						</div>
 						
-						<div class="card-body text-center">
-							<h5 class="card-title">Manicure Pacote</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor7" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Manicure Pacote</a></h2>
 							<p class="card-text">Preço: R$ 215,20 <br>
 							Duração: 30 min</p>
 						</div>
@@ -152,15 +138,13 @@
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card8" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add">
-								<img src="imagens\tatuagem.jpg" class="card-img-top" alt="..." height="200px">
-							</a>
+							<img src="imagens\tatuagem.jpg" class="card-img-top" alt="..." height="200px">
 						</div>
 						
-						<div class="card-body text-center">
-							<h5 class="card-title">Tatuagem</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor8" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Tatuagem</a></h2>
 							<p class="card-text">Preço: R$ 230,90 <br>
 							Duração: 30 min</p>
 						</div>
@@ -168,15 +152,13 @@
 				</div>
 				
 				<div class="col">
-					<div class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
+					<div id="card9" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<a class="stretched-link" data-bs-toggle="modal" data-bs-target="#add"> 
-								<img src="imagens\sobrancelha.jpg" class="card-img-top" alt="..." height="200px">
-							</a>
+							<img src="imagens\sobrancelha.jpg" class="card-img-top" alt="..." height="200px">
 						</div>
 												
-						<div class="card-body text-center">
-							<h5 class="card-title">Sobrancelhas</h5>
+						<div class="card-body text-center pt-1">
+							<h2><a id="anchor9" class="stretched-link" data-bs-toggle="modal" data-bs-target="#edit" onclick="JavaScript:Name(this.innerText)">Sobrancelhas</a></h2>
 							<p class="card-text">Preço: R$ 127,40 <br>
 							Duração: 30 min</p>
 						</div>
@@ -185,41 +167,54 @@
 			</div>
 		</div>
 
-		<!-- Botão que leva à página de adicionar colaboradores -->
-		<div class="d-grid gap-2 col-6 mx-auto">
-			<button data-bs-toggle="modal" data-bs-target="#add" class="btn btn-secondary mb-3">Adicionar Serviço</button>
+		<!-- Botão que adiciona serviços -->
+		<div class="d-flex mx-3 justify-content-center">
+			<button data-bs-toggle="modal" data-bs-target="#add" class="btn btn-primary mb-3 mx-5">Adicionar Serviço</button>
+			<button data-bs-toggle="modal" data-bs-target="#add-type" class="btn btn-secondary mb-3 mx-5">Adicionar Tipo de Serviço</button>
 		</div>
 
 		<div class="modal fade" id="add" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Adicionar/Editar serviço</h4>
+                        <h4 class="modal-title">Adicionar serviço</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
+							<div class="mb-2">
+                                <label for="type" class="form-label">Tipo de serviço</label>
+                                <select class="form-select" id="type" required>
+                                    <option selected disabled value="">Selecione</option>
+                                    <option value="1">Cortes de cabelo</option>
+                                    <option value="2">Tatuagem</option>
+                                </select>
+                            </div>
                             <!-- Inserir o nome do serviço no form -->
 							<div class="mb-2">
-								<label for="servico" class="form-label">Serviço:</label>
+								<label for="servico" class="form-label">Serviço</label>
 								<input type="text" class="form-control" id="servico" required>
 							</div>
 							
 							<!-- Inserir o preço do serviço no form -->
 							<div class="mb-2">
-								<label for="price" class="form-label">Preço (R$):</label>
+								<label for="price" class="form-label">Preço (R$)</label>
 								<input type="text" class="form-control" id="price" required>
 							</div>
 							
 							<!-- Inserir a duração do serviço no form -->
 							<div class="mb-2">
-								<label for="duration" class="form-label">Duração (min):</label>
+								<label for="duration" class="form-label">Duração (min)</label>
 								<input type="text" class="form-control" id="duration" required>
 							</div>
-							
+							<!-- Inserir a descrição do serviço no form -->
+							<div class="mb-2">
+                                <label for="description" class="form-label">Descrição</label>
+                                <textarea class="form-control" id="description" rows="3"></textarea>
+                            </div>
 							<!-- Inserir um arquivo no form -->
 							<div class="mb-2">
-								<label for="imagem" class="form-label">Adicione uma imagem para o serviço:</label>
+								<label for="imagem" class="form-label">Adicione uma imagem para o serviço</label>
 								<input type="file" class="form-control" id="imagem">
 							</div>
 							<div>
@@ -231,7 +226,72 @@
             </div>
         </div>
 
-		<br>
+		<div class="modal fade" id="edit" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Editar serviço</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+							<h4 id="#edit-name" class="text-center mb-2">Nome do serviço</h1>
+							<!-- Inserir o preço do serviço no form -->
+							<div class="mb-2">
+								<label for="price2" class="form-label">Preço (R$)</label>
+								<input type="text" class="form-control" id="price2" required>
+							</div>
+							<!-- Inserir a duração do serviço no form -->
+							<div class="mb-2">
+								<label for="duration2" class="form-label">Duração (min)</label>
+								<input type="text" class="form-control" id="duration2" required>
+							</div>
+							<!-- Inserir a descrição do serviço no form -->
+							<div class="mb-2">
+                                <label for="description2" class="form-label">Descrição</label>
+                                <textarea class="form-control" id="description2" rows="3"></textarea>
+                            </div>
+							<!-- Inserir um arquivo no form -->
+							<div class="mb-2">
+								<label for="imagem2" class="form-label">Imagem para o serviço</label>
+								<input type="file" class="form-control" id="imagem2">
+							</div>
+							<div>
+								<button type="submit" class="btn btn-success float-end mt-2">Concluir</button>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="modal fade" id="add-type" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Adicionar Tipo de Serviço</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+							<div class="mb-2">
+								<label for="type2" class="form-label">Nome do tipo de serviço:</label>
+								<input type="text" class="form-control" id="type2" required>
+							</div>
+							<div class="mb-2 form-check">
+                                <input type="checkbox" class="form-check-input" id="check" required>
+                                <label class="form-check-label" for="check">Confirmo que não encontrei outro tipo de serviço que se adeque às minhas necessidades</label>
+                            </div>
+							<div>
+								<button type="submit" class="btn btn-success float-end mt-2">Concluir</button>
+							</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<h5 class="mx-5 mt-4 mb-4">Os serviços são organizados por tipo para que possam ser escolhidos pelo cliente dentre uma lista, portanto apenas é possível customizar seu serviço específico após atribuí-lo a um tipo. Se o tipo ainda não existe, basta criar.</h5>
 
 	<div id="footer"></div>
 	<script>
@@ -240,5 +300,10 @@
             $("#footer").load("footer.html");
         });
     </script>
+	<script>
+		function Name(text) {
+			document.getElementById("#edit-name").innerText = text;
+		}
+	</script>
 	</body>
 </html>

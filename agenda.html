@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,17 +14,20 @@
     <!-- Ícones do Booststrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="imagens/favicon.ico">
     <title>Agenda</title>
 </head>
 
 <body id="main">
     <div id="header"></div>
-
+    <div class="text-center my-3">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add" type="button">Adicionar manualmente</button>
+    </div>
     <!-- Tabela para receber dados de agendamentos, assim como uma agenda-->
-    <table class="content-table mb-4" cellspacing="3" align="center">
+    <table class="table content-table mb-4 table-striped">
         <!--TABELA-->
         <thead>
-            <tr>
+            <tr class="table-header">
             <!--Dias da Semana-->
                 <th> <b> Horários/Dias </b></th>
                 <th> Domingo </th>
@@ -257,6 +259,46 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="modal fade" id="add" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Agendar</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-2">
+                            <label for="service" class="form-label">Serviço</label>
+                            <select class="form-select" id="service" required>
+                                <option selected disabled value="">Selecione</option>
+                                <option value="1">Corte de cabelo</option>
+                                <option value="2">Hidratação</option>
+                                <option value="3">Tatuagem Grande</option>
+                            </select>
+                        </div>
+                        <div class="mb-2">
+                            <label for="data" class="form-label">Data</label>
+                            <input type="date" class="form-control" id="data" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="duration" class="form-label">Duração (min)</label>
+                            <input class="form-control" type="number" id="duration" min="0" max="1440" required>
+                        </div>
+                        <div class="mb-2">
+                            <label for="price" class="form-label">Duração (min)</label>
+                            <input class="form-control" type="number" min="0" max="1000" step="5" id="price" required>
+                        </div>
+                        <div class="float-end">
+                            <button class="btn btn-primary" type="submit">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="footer"></div>
     <script>
         $(function() {

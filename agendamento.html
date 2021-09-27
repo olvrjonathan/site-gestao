@@ -5,37 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="imagens/favicon.ico">
 </head>
 <body>
     <div id="main-container" class="m-5"> <!--conteiner com as informações de agendamento-->
         <h1>Agendamento</h1>
         <form onSubmit="JavaScript:Alert()">
             <div class="mb-3">
-                <label class="form-label" for="serviço">Selecione o serviço</label> 
-                <select class="form-select" name="select"> <!--Define as opções de serviços que podem ser escolhidos-->
-                    <option value="valor1" selected>Corte feminino</option>
-                    <option value="valor2">Corte masculino</option>
-                    <option value="valor3">Escova tradicional</option>
-                    <option value="valor4">Escova Progressiva</option>
-                    <option value="valor5">Corte infantil</option>
-                    <option value="valor6">Barba</option>
-                    <option value="valor7">Sobrancelha</option>
-                    <option value="valor8">Buço</option>
-                    <option value="valor9">Coloração</option>
-                    <option value="valor10">Hidratação</option>
-                    <option value="valor11">Pedicure</option>
-                    <option value="valor12">Manicure</option>
-                    <option value="valor13">Mechas</option>
-                    <option value="valor14">Mega Hair</option>
-                    <option value="valor15">Massagem</option>
-                    <option value="valor16">Drenagem linfática</option>
-                    <option value="valor17">Peeling Facial</option>
-                    <option value="valor18">Maquiagem</option>
+                <label for="type" class="form-label">Tipo de serviço</label>
+                <select class="form-select" id="type" required>
+                    <option selected disabled value="">Selecione</option>
+                    <option value="1">Cortes de cabelo</option>
+                    <option value="2">Tatuagem</option>
+                </select>
+                <label class="form-label" for="servico">Serviço</label> 
+                <select class="form-select" id="servico" required onchange="JavaScript:Load(this.value)">
+                    <!--Define as opções de serviços que podem ser escolhidos-->
+                    <option selected disabled value="">Selecione</option>
+                    <option value="1">Corte masculino</option>
+                    <option value="2">Corte feminino</option>
+                    <option value="3">Barba modelada</option>
+                    <option value="4">Coloração</option>
+                    <option value="5">Permanente</option>
+                    <option value="6">Hidratação</option>
+                    <option value="7">Manicure pacote</option>
+                    <option value="8">Tatuagem</option>
+                    <option value="9">Sobrancelhas</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -45,16 +48,38 @@
             <!--define a data com calendário-->
             <div>
                 <label class="form-label" for="appt">Selecione o horário:</label>
-                <input class="form-control" type="time" id="appt" name="appt" min="08:00" max="21:00" required>
+                <input class="form-control" type="time" id="appt" min="07:00" max="21:00" required>
             </div>
             <!--define os hoarios definidos pelo contratador-->     
             <input class="btn btn-primary mt-3" type="submit" value="Enviar">
             <!--envia as informações-->
         </form>
+    
+    <div class="d-flex justify-content-evenly align-items-center">
+        <div id="replace" class="mt-2 mx-5">
+            
+        </div>
+        <div id="description" class="visually-hidden">
+            Futura descrição do produto: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt feugiat mi, et euismod ex feugiat vitae. Sed sed tellus ultrices, placerat velit at, semper nisi. Duis nisi orci, tempor auctor elit et, maximus ultricies neque. Proin accumsan magna enim, ac fermentum enim vehicula vel. Pellentesque habitant morbi tristique senectus.
+        </div>
     </div>
+
+    <!-- Exibe o card correspondente ao serviço selecionado e remove seus atributos de âncora -->
     <script>
         function Alert() {
             alert('Agendamento efetuado, obrigado por usar nosso serviço!');
+        }
+        function Load(id) {
+            var id = id;
+            $("#replace").load("servicos.html #card"+id);
+            document.getElementById("description").setAttribute("class", "mt-5");
+            setTimeout(function Remove() {
+                console.log("anchor"+id)
+                let anchor = document.getElementById("anchor"+id);
+                anchor.removeAttribute("data-bs-toggle");
+                anchor.removeAttribute("data-bs-target");
+                anchor.removeAttribute("onClick");
+                }, 100)
         }
     </script>
 </body>
