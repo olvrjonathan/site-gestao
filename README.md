@@ -34,4 +34,4 @@ Para o desenvolvimento do site, foram utilizados Bootstrap, SASS e JavaScript. C
 
 No GitHub, foram feitos "branches" para a contribuição individual dos membros sem interferir nos outros arquivos e, após uni-los ao main, integramos a barra de navegação e o scss com cada página para a finalização do site.
 
-Link do W3spaces: https://hostess-46010927.w3spaces.com
+Link do W3spaces: https://hostess5152c5d.netlify.app/
