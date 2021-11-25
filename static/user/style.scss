@@ -95,8 +95,8 @@ $white: #f0f0f0;
     #back {
         background: url("../imagens/schedule.svg") no-repeat fixed center;
         background-size: 25%;
-        .form-control, .form-select {
-            width: 75%;
+        .form-text {
+            font-size: 0.8vw;
         }
     }
 }
@@ -142,4 +142,8 @@ h3 {
 
 .asteriskField {
     display: none;
+}
+
+.form-text {
+    font-size: 0.625rem;
 }

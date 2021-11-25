@@ -124,8 +124,8 @@ h2 a:hover, h3 a:hover {
     background: url("../imagens/schedule.svg") no-repeat fixed center;
     background-size: 25%;
   }
-  #back .form-control, #back .form-select {
-    width: 75%;
+  #back .form-text {
+    font-size: 0.8vw;
   }
 }
 
@@ -163,5 +163,9 @@ h3 a:hover {
 
 .asteriskField {
   display: none;
+}
+
+.form-text {
+  font-size: 0.625rem;
 }
 /*# sourceMappingURL=style.css.map */

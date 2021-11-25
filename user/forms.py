@@ -10,7 +10,7 @@ class BusinessForm(forms.ModelForm):
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'business', 'first_name', 'last_name', 'cpf', 'birth_date')
+        fields = ('email', 'business', 'first_name', 'last_name', 'cpf', 'birth_date')
         labels = {
             'business': 'Associação empresarial',
             'cpf': 'CPF',

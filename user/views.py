@@ -11,23 +11,22 @@ from django.contrib.auth.decorators import login_required
 # |linebreaksbr
 
 def redirect(request):
-    url_redirecionamento = reverse('cadastro')
+    url_redirecionamento = reverse('entrar')
     return HttpResponseRedirect(url_redirecionamento)
 
 #@login_required
-def cadastro(request):
+def entrar(request):
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
-            return HttpResponseRedirect(reverse('all'))
+            return HttpResponseRedirect(reverse('sucesso'))
         else:
-            print(form)
-            return HttpResponseRedirect(reverse('all'))
+            return render(request, 'user/entrar.html', {'form': form})
     else:
         form = CustomUserCreationForm()
-        return render(request, 'user/cadastro.html', {'form': form})
+        return render(request, 'user/entrar.html', {'form': form})
 
 def sucesso(request):
     return render(request, 'user/sucesso.html')
