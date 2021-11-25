@@ -93,8 +93,11 @@ $white: #f0f0f0;
 // Mostra a imagem apeas em telas suficientemente grandes para não prejudicar a visibilidade dos elementos
 @media screen and (min-width: 992px) {
     #back {
-    background: url("imagens/schedule.svg") no-repeat fixed center;
-    background-size: 25%;
+        background: url("../imagens/schedule.svg") no-repeat fixed center;
+        background-size: 25%;
+        .form-control, .form-select {
+            width: 75%;
+        }
     }
 }
 
@@ -135,4 +138,8 @@ h3 {
     a:hover {
         color:white;
     }
+}
+
+.asteriskField {
+    display: none;
 }

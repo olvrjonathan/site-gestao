@@ -1,0 +1,37 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #152238;
+    margin: 50px 20px;
+}
+
+.teste {
+    color: red;
+}
+
+/* .column {
+    float: left;
+    padding: 15px;
+    width: 35%;
+}
+
+.row {
+    margin: 0 15%;
+}
+
+row:after {
+    content: "";
+    display: table;
+    clear: both;
+} */
+
+.name {
+    font-size: 16px;
+}
+
+.table-responsive {
+    margin: 15px 5%;
+    width: 90%
+}

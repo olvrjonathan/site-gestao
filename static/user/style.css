@@ -121,8 +121,11 @@ h2 a:hover, h3 a:hover {
 
 @media screen and (min-width: 992px) {
   #back {
-    background: url("imagens/schedule.svg") no-repeat fixed center;
+    background: url("../imagens/schedule.svg") no-repeat fixed center;
     background-size: 25%;
+  }
+  #back .form-control, #back .form-select {
+    width: 75%;
   }
 }
 
@@ -156,5 +159,9 @@ h3 a {
 
 h3 a:hover {
   color: white;
+}
+
+.asteriskField {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

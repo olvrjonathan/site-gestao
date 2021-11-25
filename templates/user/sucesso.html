@@ -1,0 +1,27 @@
+{% extends "user/template.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Cadastro realizado</title>
+    <style>
+        div {
+            font-family: Arial;
+            margin: auto;
+            color: #152238;
+            max-width: max-content;
+        }
+        span{
+            font-size: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block links %}
+<link rel="icon" href="{% static 'imagens/favicon.ico' %}">
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>O cadastro foi efetuado com sucesso!<span>(eu espero)</span></h1>
+    <div>
+{% endblock %}
