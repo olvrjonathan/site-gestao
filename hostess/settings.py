@@ -42,9 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'crispy_bootstrap5',
     'crispy_forms',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'user',
     'client'
 ]
@@ -117,20 +114,13 @@ AUTH_USER_MODEL = 'user.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    #'user.backends.UserBackend',
 ]
 
 SITE_ID = 1
 
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
-ACCOUNT_SESSION_REMEMBER = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_UNIQUE_EMAIL = True
-
-LOGIN_REDIRECT_URL = 'agendamento'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'entrar'
+LOGIN_REDIRECT_URL = 'user/sucesso'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'user/entrar'
 
 
 # Internationalization

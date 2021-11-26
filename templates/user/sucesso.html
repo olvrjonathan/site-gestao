@@ -24,4 +24,8 @@
     <div>
         <h1>O cadastro foi efetuado com sucesso!<span>(eu espero)</span></h1>
     <div>
+    {% if user.is_authenticated %}
+        <p>Bem-vindo(a), {{ user.first_name }}!</p>
+        <a href='{% url "sair" %}'>Sair da conta</a>
+    {% endif %}
 {% endblock %}

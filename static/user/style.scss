@@ -90,14 +90,28 @@ $white: #f0f0f0;
     @include border(right);
 }
 
-// Mostra a imagem apeas em telas suficientemente grandes para não prejudicar a visibilidade dos elementos
+/* Evita que a barra de navegação que aumenta por motivos desconhecidos sobreponha elementos em telas grandes
+Mostra a imagem apenas em telas suficientemente grandes para não prejudicar a visibilidade dos elementos
+Ajusta o tamanho dos formulários conforme o tamanho da tela */
 @media screen and (min-width: 992px) {
+    #main {
+        padding-top: 76px;
+    }
     #back {
         background: url("../imagens/schedule.svg") no-repeat fixed center;
         background-size: 25%;
         .form-text {
             font-size: 0.8vw;
         }
+        #register-container, #login-container {
+            width: 30vw;
+        }
+    }
+}
+
+@media screen and (min-width: 576px) {
+    #register-container, #login-container {
+        width: 40vw;
     }
 }
 
@@ -112,13 +126,6 @@ $white: #f0f0f0;
     #carousel {
       width: 100%;
       height: 75%;
-    }
-}
-
-// Evita que a barra de navegação que aumenta por motivos desconhecidos sobreponha elementos em telas grandes
-@media screen and (min-width: 992px) {
-    #main {
-        padding-top: 76px;
     }
 }
 
@@ -146,4 +153,8 @@ h3 {
 
 .form-text {
     font-size: 0.625rem;
+}
+
+#register-container, #login-container {
+    width: auto;
 }

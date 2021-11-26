@@ -11,16 +11,16 @@
         <div class="m-5" id="register-container">
             <h1>Cadastro</h1>
             <form method="POST" class="post-form">{% csrf_token %}
-                {{ form|crispy }}
-                <input class="btn btn-primary" type="submit" value="Cadastrar">
+                {{ signup|crispy }}
+                <input class="btn btn-primary" name = "reg" type="submit" value="Cadastrar-se">
             </form>
         </div>
         
         <div class="m-5" id="login-container">
-            <h1>Login</h1>
+            <h1>Entrar</h1>
             <form method="POST" class="post-form">{% csrf_token %} <!--formulário que pede as informações para o login-->
-                Conteúdo
-                <input class="btn btn-primary" type="submit" value="Entrar">
+                {{ credentials|crispy }}
+                <input class="btn btn-primary" name = "log" type="submit" value="Entrar">
             </form>
         </div>
     </div>
