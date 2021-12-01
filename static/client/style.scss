@@ -1,0 +1,35 @@
+* {
+    font-family: $font-stack;
+}
+
+.asteriskField {
+    display: none;
+}
+
+.form-text {
+    font-size: 0.625rem;
+}
+
+#register-container, #login-container {
+    width: auto;
+}
+
+
+@media screen and (min-width: 576px) {
+    #register-container, #login-container {
+        width: 40vw;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #back {
+        background: url("../imagens/schedule.svg") no-repeat fixed center;
+        background-size: 25%;
+        .form-text {
+            font-size: 0.8vw;
+        }
+        #register-container, #login-container {
+            width: 30vw;
+        }
+    }
+}

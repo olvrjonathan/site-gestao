@@ -35,3 +35,21 @@ row:after {
     margin: 15px 5%;
     width: 90%
 }
+
+#logo {
+    height: 40px;
+    width: 180px;
+    padding: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#main {
+    padding-top: 72px;
+}
+
+@media screen and (min-width: 992px) {
+    #main {
+      padding-top: 76px;
+    }
+}

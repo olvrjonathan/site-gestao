@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = BASE_DIR / 'templates'
 STATIC_DIR = BASE_DIR / 'static'
+#MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Quick-start development settings - unsuitable for production
@@ -120,7 +121,7 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'user/sucesso'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'user/entrar'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'client/entrar'
 
 
 # Internationalization

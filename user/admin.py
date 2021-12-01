@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from user.models import CustomUser, Business
+from user.models import CustomUser, Business, Service, ServiceCategory, Booking
 
 # Formulário para criação de usuário
 class UserCreationForm(forms.ModelForm):
@@ -38,8 +38,8 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'password', 'first_name', 'last_name', 'cpf',
-                  'business', 'birth_date', 'is_active', 'is_admin')
+        fields = ('email', 'password', 'first_name', 'last_name', 'cpf', 'is_client',
+                  'phone_number', 'business', 'birth_date', 'is_active', 'is_admin')
 
 
 # Formulário para adicionar e modificar usuários
@@ -47,15 +47,13 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserAdmin
-    # that reference specific fields on auth.User.
-    list_display = ('email', 'first_name', 'last_name', 'cpf',
-                  'business', 'birth_date', 'is_admin')
-    list_filter = ('is_admin',)
+    # Substitui os campos exibidos ao UserAdmin padrão
+    list_display = ('email', 'first_name', 'last_name', 'cpf', 'is_client',
+                  'phone_number', 'business', 'birth_date', 'is_admin')
+    list_filter = ('is_client', 'is_admin')
     fieldsets = (
         (None, {'fields': ('email', 'password', 'business')}),
-        ('Personal info', {'fields': ('first_name', 'last_name', 'cpf', 'birth_date')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'cpf', 'birth_date', 'phone_number')}),
         ('Permissions', {'fields': ('is_admin',)}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -75,5 +73,8 @@ class UserAdmin(BaseUserAdmin):
 # Registra os novos modelos em admin
 admin.site.register(CustomUser, UserAdmin)
 admin.site.register(Business)
+admin.site.register(Service)
+admin.site.register(ServiceCategory)
+admin.site.register(Booking)
 # Remove o registro do modelo de grupo, pois as permissões padrão não estão sendo usadas
 admin.site.unregister(Group)

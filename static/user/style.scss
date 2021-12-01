@@ -3,9 +3,7 @@ $favorite-color: #0E163C;
 $font-stack: Arial, Helvetica, sans-serif;
 $graph_color: rgba(168, 168, 168, 0.767);
 $light-gray:rgba(169, 169, 169, 0.877);
-$gray: gray;
 $theme_purple:#6c63ff;
-$white: #f0f0f0;
 
 %no-link {
     a {
@@ -37,12 +35,20 @@ $white: #f0f0f0;
     padding-top: 72px;
 }
 
+.asteriskField {
+    display: none;
+}
+
 .size-small {
     width: 40%;
 }
 
 .huge {
     font-size: 100px;
+}
+
+.nav-item {
+    margin: 0 10px;
 }
 
 .card-settings {
@@ -90,28 +96,11 @@ $white: #f0f0f0;
     @include border(right);
 }
 
-/* Evita que a barra de navegação que aumenta por motivos desconhecidos sobreponha elementos em telas grandes
-Mostra a imagem apenas em telas suficientemente grandes para não prejudicar a visibilidade dos elementos
-Ajusta o tamanho dos formulários conforme o tamanho da tela */
+/* Evita que a barra de navegação que aumenta por motivos
+desconhecidossobreponha elementos em telas grandes */
 @media screen and (min-width: 992px) {
     #main {
         padding-top: 76px;
-    }
-    #back {
-        background: url("../imagens/schedule.svg") no-repeat fixed center;
-        background-size: 25%;
-        .form-text {
-            font-size: 0.8vw;
-        }
-        #register-container, #login-container {
-            width: 30vw;
-        }
-    }
-}
-
-@media screen and (min-width: 576px) {
-    #register-container, #login-container {
-        width: 40vw;
     }
 }
 
@@ -145,16 +134,4 @@ h3 {
     a:hover {
         color:white;
     }
-}
-
-.asteriskField {
-    display: none;
-}
-
-.form-text {
-    font-size: 0.625rem;
-}
-
-#register-container, #login-container {
-    width: auto;
 }

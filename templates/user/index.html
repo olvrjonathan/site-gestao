@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Permite o header em todas as páginas -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <!-- Ícones do Booststrap-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="style.css" rel="stylesheet">
-    <link rel="icon" href="imagens/favicon.ico">
-    <title>Hostess</title>
-</head>
+{% extends "user/template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 
-<body id="main">
+{% block head %}
+    <title>Hostess</title>
+{% endblock %}
+
+{% block content %}
 <!-- Página inicial -->
-    <div id="header"></div>
     <section class="bg-dark text-light p-5 text-center">
     <!-- Fundo escuro e texto claro -->
         <div class="container">
@@ -30,13 +18,10 @@
                     <p class="lead my-3">Nós oferecemos uma maneira simples e eficaz de agendar e gerir seu negócio e facilitar a interação com o cliente.</p>
                     <div class="d-flex flex-row justify-content-center">
                         <button type="button" class="btn btn-primary btn-lg mx-3" data-bs-toggle="modal" data-bs-target="#register">Registre-se</button>
-                        <button type="button" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#sign-in">Entrar</button>
-                    </div>
-                    <div class="mt-3">
-                        <button type="button" class="btn btn-success btn-lg mx-3" data-bs-toggle="modal" data-bs-target="#business" id="register2">Registre seu negócio</button>
+                        <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign-in">Entrar</button>
                     </div>
                 </div>
-                <img class="img-fluid d-none d-md-block mx-5 size-small" src="imagens/top.svg" alt="Alguma coisa" />
+                <img class="img-fluid d-none d-md-block mx-5 size-small" src="{% static 'imagens/top.svg' %}" alt="Alguma coisa" />
                 <!-- Faz com que a imagem não apareça em telas menores -->
             </div>
         </div>
@@ -45,10 +30,11 @@
     <div class="d-md-flex mt-4 justify-content-center text-center">
     <!-- Implementa um botão que copia o link do site destinado a clientes -->
         <span class="input-group-text border-3" id="borda">Envie para seus clientes:</span>
-        <span class="input-group-text border-3" id="link">https://hostess5152c5d.netlify.app/cadastro.html</span>
+        <span class="input-group-text border-3" id="link">https://hostess5152c5d.netlify.app/client/</span>
         <div class> <button class="btn btn-primary border-3 mx-auto" onclick="JavaScript:Copy()">Copiar</button>
         </div>
     </div>
+
 
 <!-- Modals ativados por botões e usados para registro e login,
     não permitem interação com o restante da página antes de serem fechados -->
@@ -61,48 +47,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form onSubmit="JavaScript:Alert()">
-                        <!-- Exibe um alerta que confirma o registro ao enviar os dados -->
-                            <div class="mb-2">
-                                <label for="empresa" class="form-label">Afiliação</label>
-                                <select class="form-select" id="empresa" required>
-                                    <option selected disabled value="">Selecione</option>
-                                    <option value="1">FGV</option>
-                                    <option value="2">VASSP</option>
-                                </select>
-                            </div>
-                            <div class="mb-2">
-                                <label for="email" class="form-label">Endereço de e-mail</label>
-                                <input type="email" class="form-control" id="email" required>
-                                <div class="form-text">Não compartilharemos este e-mail.</div>
-                            </div>
-                            <div class="mb-2">
-                                <label for="nome" class="form-label">Nome completo</label>
-                                <input type="text" class="form-control" id="nome" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="cpf" class="form-label">CPF</label>
-                                <input type="text" class="form-control" id="cpf" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="senha1" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha1" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="senha2" class="form-label">Confirmar senha</label>
-                                <input type="password" class="form-control" id="senha2" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="data" class="form-label">Data de nascimento</label>
-                                <input type="date" class="form-control" id="data" required>
-                            </div>
-                            
+                        <form method="POST" class="post-form" onSubmit="JavaScript:Alert()">
+                            {% csrf_token %}
+                            {{ signup|crispy }}
                             <div class="mb-2 form-check">
                                 <input type="checkbox" class="form-check-input" id="check" required>
                                 <label class="form-check-label" for="check">Eu não li, mas concordo com os Termos de Serviço</label>
                             </div>
                             <div class="float-end">
-                                <button id="submit" class="btn btn-primary" type="submit">Registre-se</button>
+                                <input class="btn btn-primary" name = "reg" type="submit" value="Registre-se">
                             </div>
                         </form>
                     </div>
@@ -118,51 +71,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="mb-2">
-                                <label for="email2" class="form-label">Endereço de e-mail</label>
-                                <input type="email" class="form-control" id="email2" required>
-                            </div>
-                            <div class="mb-2">
-                                <label for="senha3" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha3" required>
-                            </div>
-                            <div class="mb-2 form-check">
-                                <input type="checkbox" class="form-check-input" id="check3" required>
-                                <label class="form-check-label" for="check3">Manter-se conectado</label>
-                            </div>
+                        <form method="POST" class="post-form">
+                            {% csrf_token %}
+                            {{ credentials|crispy }}
                             <div class="float-end">
-                                <button class="btn btn-primary" type="submit">Entrar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="business" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Registrar seu negócio</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-2">
-                                <label for="nome2" class="form-label">Nome do negócio</label>
-                                <textarea class="form-control" id="nome2" rows="1" required></textarea>
-                            </div>
-                            <div class="mb-2">
-                                <label for="cnpj" class="form-label">Seu CPF / CNPJ da empresa</label>
-                                <textarea class="form-control" id="cnpj" rows="1" required></textarea>
-                            </div>
-                            <div class="mb-2 form-check">
-                                <input type="checkbox" class="form-check-input" id="check4" required>
-                                <label class="form-check-label" for="check4">Confirmar</label>
-                            </div>
-                            <div class="float-end">
-                                <button class="btn btn-primary" type="submit">Registrar</button>
+                                <input class="btn btn-primary" name = "log" type="submit" value="Entrar">
                             </div>
                         </form>
                     </div>
@@ -184,21 +97,21 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="imagens/carousel1.png" class="d-block img-fluid" alt="...">
+                    <img src="{% static 'imagens/carousel1.png' %}" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Configurações</h5>
                         <p>Na verdade não fazem nada.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="imagens/carousel2.svg" class="d-block img-fluid" alt="...">
+                    <img src="{% static 'imagens/carousel2.svg' %}" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Slide em construção</h5>
                         <p>Amanhã eu termino.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="imagens/carousel3.png" class="d-block img-fluid" alt="...">
+                    <img src="{% static 'imagens/carousel3.png' %}" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Tabela em construção</h5>
                         <p>Eu termino depois do slide anterior.</p>
@@ -215,15 +128,6 @@
             </button>
         </div>
     </section>
-    <div id="footer"></div>
-
-<!-- Acrescenta os arquivos header e footer onde há tags com esses ids -->
-    <script>
-        $(function() {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
-        });
-    </script>
     <script>
         function Alert() {
             let name = document.getElementById("nome").value.split(" ")[0];
@@ -235,5 +139,4 @@
             navigator.clipboard.writeText(text);
         }
     </script>
-</body>
-</html>
+{% endblock %}

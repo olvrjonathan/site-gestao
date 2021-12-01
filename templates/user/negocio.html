@@ -1,0 +1,111 @@
+{% extends "user/template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+    <title>Negócio</title>
+{% endblock %}
+	
+{% block content %}
+	<div id="header"></div>
+	<!-- Título da página 
+	<div class="text-center">
+		<h1>Colaboradores</h1>
+	</div>
+	-->
+
+	<br>
+	<br>
+
+	<!-- Tabela para mostrar os colaboradores -->
+	<table id="colab" class="table mx-4">
+
+		<!-- Head da tabela, colunas -->
+		<thead>
+			<tr>
+				<th scope="col">Colaborador</th>
+				<th scope="col">E-mail</th>
+			</tr>
+		</thead>
+
+		<!-- Body da tabela, linhas -->
+		<tbody>
+
+			<!-- Linhas: imagem, nome e email -->
+			<tr>
+				<td><img src="imagens/a1.jpg" alt="Imagem" height="70" width="70" class="mx-4"/>Margarida Carrilha</td>
+				<td>margaridac12@email.com</td>
+			</tr>
+			<tr>
+				<td><img src="imagens/a2.jpg" alt="Imagem" height="70" width="70" class="mx-4"/>Alexandro Matias</td>
+				<td>alexandromat90@email.com</td>
+			</tr>
+			<tr>
+				<td><img src="imagens/a3.jpg" alt="Imagem" height="70" width="70" class="mx-4"/>Angelo Gaspar</td>
+				<td>angelogpr3453@email.com</td>
+			</tr>
+			<tr>
+				<td><img src="imagens/a4.jpg" alt="Imagem" height="70" width="70" class="mx-4"/>Leila Quintana</td>
+				<td>leilaquintana@email.com</td>
+			</tr>
+			<tr>
+				<td><img src="imagens/a5.jpg" alt="Imagem" height="70" width="70" class="mx-4"/>Mayra Durães Vieira</td>
+				<td>mayradvieira@email.com</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br>
+	<br>
+	
+	<!-- Botão que leva à página de adicionar colaboradores -->
+	<div class="d-grid gap-2 col-6 mx-auto">
+		<button data-bs-toggle="modal" data-bs-target="#add" class="btn btn-secondary mb-3">Adicionar Colaboradores</button>
+	</div>
+
+	<div class="modal fade" id="add" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Adicionar colaboradores</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-2">
+							<label for="name" class="form-label">Nome Completo:</label>
+							<input type="text" class="form-control" id="name" required>
+						</div>
+						
+						<div class="mb-2">
+							<label for="cpf" class="form-label">CPF:</label>
+							<input type="tel" class="form-control" id="cpf" required>
+						</div>
+				
+						<div class="mb-2">
+							<label for="email" class="form-label">E-mail:</label>
+							<input type="email" class="form-control" id="email" required>
+						</div>
+					
+						<div class="mb-2">	
+							<label for="password" class="form-label">Senha:</label>
+							<input type="password" class="form-control" id="password" required>
+						</div>
+				
+						<div class="mb-2">
+							<label for="date" class="form-label">Data de nascimento:</label>
+							<input type="date" class="form-control" id="date" required>
+						</div>
+						<div class="mb-2">
+							<label for="imagem" class="form-label">Adicione uma foto de perfil:</label>
+							<input type="file" class="form-control" id="imagem">
+						</div>
+						<div>
+							<button type="submit" class="btn btn-success float-end mt-2">Concluir</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

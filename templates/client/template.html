@@ -19,15 +19,13 @@
     <!-- Bootstrap CSS -->
     <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
     <!-- Estilos próprios do aplicativo -->
-    <link href="{% static 'user/style.css' %}" rel="stylesheet">
+    <link href="{% static 'client/style.css' %}" rel="stylesheet">
     {% endblock %}
 </head>
 
 <body id="main">
-{% include 'user/header.html' %}
     {% block content %}
         <h1>Algo deu errado...</h1>
     {% endblock %}
-{% include 'user/footer.html' %}
 </body>
 </html>
