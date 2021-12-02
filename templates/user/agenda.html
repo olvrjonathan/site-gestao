@@ -1,6 +1,12 @@
-<!DOCTYPE html>
+{% extends "user/template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 
-<html lang="pt-br">
+{% block head %}
+    <title>Agenda</title>
+{% endblock %}
+
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -308,4 +314,4 @@
     </script>
 </body>
 
-</html>
+{% endblock %}

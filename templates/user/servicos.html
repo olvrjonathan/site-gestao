@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "user/template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+    <title>Relatorios</title>
+{% endblock %}
+
+{% block content %}
 	<head>
 		<!-- Título da janela -->
 		<title>Serviços</title>
@@ -38,7 +45,7 @@
 
 						<!-- Topo do card com uma imagem -->
 						<div class="card-header">
-							<img src="imagens/corte_masc.jpg" class="card-img-top" alt="..." height="200">
+							<img src="{% static 'imagens/corte_masc.jpg' %}" class="card-img-top" alt="..." height="190">
 						</div>
 						
 						<!-- Corpo do card com as informações do serviço -->
@@ -53,7 +60,7 @@
 				<div class="col">
 					<div id="card2" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/corte_fem.jpg" class="card-img-top" alt="..." height="200">
+							<img src="{% static 'imagens/corte_fem.jpg' %}" class="card-img-top" alt="..." height="190">
 						</div>
 						
 						<div class="card-body text-center pt-1">
@@ -67,7 +74,7 @@
 				<div class="col">
 					<div id="card3" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/barba.jpg" class="card-img-top" alt="..." height="200">
+							<img src="{% static 'imagens/barba.jpg' %}" class="card-img-top" alt="..." height="190">
 						</div>
 						
 						<div class="card-body text-center pt-1">
@@ -81,7 +88,7 @@
 				<div class="col">
 					<div id="card4" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/pintura.jpg" class="card-img-top" alt="..." height="200">
+							<img src="{% static 'imagens/pintura.jpg' %}" class="card-img-top" alt="..." height="190">
 						</div>
 
 						<div class="card-body text-center pt-1">
@@ -95,7 +102,7 @@
 				<div class="col">
 					<div id="card5" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/cabelo.jpg" class="card-img-top" alt="..." height="200">
+							<img src="{% static 'imagens/cabelo.jpg' %}" class="card-img-top" alt="..." height="190">
 						</div>
 						
 						<div class="card-body text-center pt-1">
@@ -109,7 +116,7 @@
 				<div class="col">
 					<div id="card6" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/hidratacao.jpg" class="card-img-top" alt="..." height="200">	
+							<img src="{% static 'imagens/hidratacao.jpg' %}" class="card-img-top" alt="..." height="190">	
 						</div>
 						
 						<div class="card-body text-center pt-1">
@@ -123,7 +130,7 @@
 				<div class="col">
 					<div id="card7" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/manicure.jpg" class="card-img-top" alt="..." height="200">	
+							<img src="{% static 'imagens/manicure.jpg' %}" class="card-img-top" alt="..." height="190">	
 						</div>
 						
 						<div class="card-body text-center pt-1">
@@ -137,7 +144,7 @@
 				<div class="col">
 					<div id="card8" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/tatuagem.jpg" class="card-img-top" alt="..." height="200">
+							<img src="{% static 'imagens/tatuagem.jpg' %}" class="card-img-top" alt="..." height="190">
 						</div>
 						
 						<div class="card-body text-center pt-1">
@@ -151,7 +158,7 @@
 				<div class="col">
 					<div id="card9" class="card mx-md-0 mx-auto my-4 card-custom" style="width: 18rem;">
 						<div class="card-header">
-							<img src="imagens/sobrancelha.jpg" class="card-img-top" alt="..." height="200">
+							<img src="{% static 'imagens/sobrancelha.jpg' %}" class="card-img-top" alt="..." height="190">
 						</div>
 												
 						<div class="card-body text-center pt-1">
@@ -288,7 +295,7 @@
             </div>
         </div>
 
-		<h5 class="mx-5 mt-4 mb-4">Os serviços são organizados por tipo para que possam ser escolhidos pelo cliente dentre uma lista, portanto apenas é possível customizar seu serviço específico após atribuí-lo a um tipo. Se o tipo ainda não existe, basta criar.</h5>
+		<h5 class="mx-5 mt-4 mb-4">Os serviços são organizados por tipo para que possam ser escolhidos pelo cliente dentre uma lista, portanto apenas é possível customizar seu serviço específico após atribuí-lo a um tipo. Se o tipo ainda não existe, basta criá-lo.</h5>
 
 	<div id="footer"></div>
 	<script>
@@ -303,4 +310,4 @@
 		}
 	</script>
 	</body>
-</html>
+{% endblock %}
