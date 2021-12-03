@@ -16,10 +16,12 @@
                 <div>
                     <h1>Faça a gestão do seu negócio</h1>
                     <p class="lead my-3">Nós oferecemos uma maneira simples e eficaz de agendar e gerir seu negócio e facilitar a interação com o cliente.</p>
+                    {% if not user.is_authenticated %}
                     <div class="d-flex flex-row justify-content-center">
-                        <button type="button" class="btn btn-primary btn-lg mx-3" data-bs-toggle="modal" data-bs-target="#register">Registre-se</button>
-                        <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#sign-in">Entrar</button>
+                        <button class="btn btn-primary btn-lg mx-3" data-bs-toggle="modal" data-bs-target="#registrar">Registre-se</button>
+                        <button class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#entrar">Entrar</button>
                     </div>
+                    {% endif %}
                 </div>
                 <img class="img-fluid d-none d-md-block mx-5 size-small" src="{% static 'imagens/top.svg' %}" alt="Alguma coisa" />
                 <!-- Faz com que a imagem não apareça em telas menores -->
@@ -30,24 +32,24 @@
     <div class="d-md-flex mt-4 justify-content-center text-center">
     <!-- Implementa um botão que copia o link do site destinado a clientes -->
         <span class="input-group-text border-3" id="borda">Envie para seus clientes:</span>
-        <span class="input-group-text border-3" id="link">https://hostess5152c5d.netlify.app/client/</span>
+        <span class="input-group-text border-3" id="link">https://hostess5152c5d.netlify.app/</span>
         <div class> <button class="btn btn-primary border-3 mx-auto" onclick="JavaScript:Copy()">Copiar</button>
         </div>
     </div>
 
-
+    {% if not user.is_authenticated %}
 <!-- Modals ativados por botões e usados para registro e login,
     não permitem interação com o restante da página antes de serem fechados -->
     <section>
-        <div class="modal fade" id="register" tabindex="-1" role="dialog">
+        <div class="modal fade" id="registrar" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Registro</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" class="post-form" onSubmit="JavaScript:Alert()">
+                        <form method="POST" class="post-form">
                             {% csrf_token %}
                             {{ signup|crispy }}
                             <div class="mb-2 form-check">
@@ -63,12 +65,12 @@
             </div>
         </div>
 
-        <div class="modal fade" id="sign-in" tabindex="-1" role="dialog">
+        <div class="modal fade" id="entrar" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Entrar</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
                         <form method="POST" class="post-form">
@@ -83,6 +85,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
 <!-- Carousel que muda as dimensões conforme o tamanho da tela por especificações em CSS,
     possui botões de navegação -->
@@ -138,5 +141,9 @@
             let text = link.textContent;
             navigator.clipboard.writeText(text);
         }
-    </script>
+        {% if modal %}
+        var modal = new bootstrap.Modal(document.getElementById('{{ modal }}'), {})
+        modal.toggle()
+        {% endif %}
+	</script>
 {% endblock %}

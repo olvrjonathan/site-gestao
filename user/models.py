@@ -1,16 +1,15 @@
 from django.db import models
-from django.utils import timezone
+#from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class CustomUserManager(BaseUserManager):
-    def create_user(self, email, first_name, last_name, phone_number, cpf, birth_date, password=None):
+    def create_user(self, email, first_name, last_name, cpf, birth_date, password=None):
         if not email:
             raise ValueError('É obrigatório possuir endereço de e-mail')
         user = self.model(
             email = self.normalize_email(email),
             first_name = first_name.capitalize(),
             last_name = last_name.capitalize(),
-            phone_number = phone_number,
             cpf = cpf,
             birth_date = birth_date,
         )
@@ -18,13 +17,12 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, first_name, last_name, phone_number=None, cpf=None, birth_date=None, password=None):
+    def create_superuser(self, email, first_name, last_name, cpf=None, birth_date=None, password=None):
         user = self.create_user(
             email,
             password = password,
             first_name = first_name,
             last_name = last_name,
-            phone_number = phone_number,
             cpf = cpf,
             birth_date = birth_date
         )
@@ -78,7 +76,10 @@ class Business(models.Model):
     cnpj_cpf = models.CharField(max_length=14, unique=True)
     name = models.CharField(max_length=50, unique=True)
     register_date = models.DateField(auto_now_add=True)
-    ceo = models.OneToOneField('CustomUser', on_delete=models.RESTRICT, related_name='business_ceo')
+    ceo = models.OneToOneField('CustomUser', on_delete=models.RESTRICT,
+                                related_name='business_ceo', blank=True)
+    invitations = models.ManyToManyField('CustomUser', related_name='user_invitations',
+                                        blank=True, limit_choices_to={'business': None})
     class Meta:
         verbose_name_plural = 'businesses'
 
@@ -104,7 +105,14 @@ class ServiceCategory(models.Model):
 class Booking(models.Model):
     service = models.OneToOneField('Service', on_delete=models.RESTRICT)
     client = models.ForeignKey('CustomUser', on_delete=models.SET_NULL,
-                                null=True, limit_choices_to={'isclient': True})
+                                null=True, limit_choices_to={'is_client': True})
     date_time = models.DateField()
     paid_out = models.BooleanField(default=False)
     comment = models.CharField(max_length=300, null=True)
+
+
+# class Inventory(models.Model):
+#     business = OneToOneField('Business', on_delete=models.RESTRICT,
+#                             related_name='inventory_owner')
+#     date_update = models.DateField(auto_now=True)
+#     product_quantity = models.IntegerField()

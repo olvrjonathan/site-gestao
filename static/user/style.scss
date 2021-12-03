@@ -33,6 +33,13 @@ $theme_purple:#6c63ff;
 // Evita sobreposição da barra de navegação
 #main {
     padding-top: 72px;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    footer {
+        margin-top: auto;
+    }
 }
 
 .asteriskField {
@@ -70,9 +77,17 @@ $theme_purple:#6c63ff;
     background-color: white;
 }
 
-#colab {
-    margin: 0 2% 0 2%;
+.colab {
+    margin: 0 2% 10px 2%;
     width: 96%;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.action-row:hover {
+    cursor:pointer;
 }
 
 #carousel {
@@ -134,4 +149,8 @@ h3 {
     a:hover {
         color:white;
     }
+}
+
+h5 {
+    margin-bottom: 75px;
 }

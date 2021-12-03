@@ -7,7 +7,7 @@
         <!-- Botão para "colapsar" os itens de navegação em um botão em telas menores -->
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand p-0" href="{% url 'index' %}">
+        <a class="navbar-brand p-0" href="{% url 'inicio' %}">
             <img id="logo" src="{% static 'imagens/marca_hostess2.png' %}" class="d-block img-fluid" alt="...">
         </a>
         <div class="collapse navbar-collapse" id="toggler">
@@ -16,7 +16,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">Início</a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="{% url 'index' %}">Usuário</a></li>
+                        <li><a class="dropdown-item" href="{% url 'inicio' %}">Usuário</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'entrar' %}">Cliente</a></li>
                     </ul>
@@ -32,19 +32,39 @@
                     <a href="{% url 'ajustes' %}" class="nav-link">Ajustes</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'estoque' %}" class="nav-link">Estoque</a>
-                </li>
-                <li class="nav-item">
                     <a href="{% url 'relatorios' %}" class="nav-link">Relatórios</a>
                 </li>
                 <li class="nav-item">
                     <a href="{% url 'servicos' %}" class="nav-link">Serviços</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{% url 'sair' %}" class="nav-link">Sair</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">{{ user.first_name }}</a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{% url 'ajustes' %}">Informações</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#sair">Sair</a></li>
+                    </ul>
                 </li>
                 {% endif %}
             </ul>
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="sair" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Sair</h4>
+                <button class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Tem certeza?</h5>
+                <div class="d-flex flex-row justify-content-between">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
+                    <a type="button" class="btn btn-danger" href="{% url 'sair' %}">Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

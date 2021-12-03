@@ -120,8 +120,8 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'user/sucesso'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'client/entrar'
+LOGIN_REDIRECT_URL = 'user/inicio'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'user/inicio'
 
 
 # Internationalization

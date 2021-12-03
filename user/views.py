@@ -1,6 +1,6 @@
-from django.http import HttpResponseRedirect
-from .models import CustomUser
-from .forms import BusinessForm, CustomUserChangeForm, CustomUserCreationForm, CustomUserLoginForm, BusinessForm
+from django.http import HttpResponseRedirect, request
+from .models import CustomUser, Business
+from .forms import *
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
@@ -13,12 +13,12 @@ from django.contrib.auth.decorators import login_required
 # |linebreaksbr
 
 def redirect(request):
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('inicio'))
 
 @login_required
 def sair(request):
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('inicio'))
 
 def sucesso(request):
     return render(request, 'user/sucesso.html')
@@ -27,18 +27,18 @@ def all(request):
     context = {'users': CustomUser.objects.all()}
     return render(request, 'user/all.html', context)
 
-def index(request):
-    if request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('sucesso'))
+def inicio(request):
     signup = CustomUserCreationForm()
     credentials = CustomUserLoginForm()
+    modal = None
     if request.method == 'POST':
         if request.POST.get('reg'):
             signup = CustomUserCreationForm(request.POST)
             if signup.is_valid():
                 if signup.validate():
                     signup.save()
-                    return HttpResponseRedirect(reverse('all'))
+                    return HttpResponseRedirect(reverse('inicio'))
+            modal = 'registrar'
         elif request.POST.get('log'):
             credentials = CustomUserLoginForm(request, data=request.POST)
             if credentials.is_valid():
@@ -48,9 +48,10 @@ def index(request):
                 if user:
                     if user.is_active:
                         login(request, user)
-                        return HttpResponseRedirect(reverse('sucesso'))
-    context = {'signup': signup, 'credentials': credentials}
-    return render(request, 'user/index.html', context)
+                        return HttpResponseRedirect(reverse('negocio'))
+            modal = 'entrar'
+    context = {'signup': signup, 'credentials': credentials, 'modal': modal}
+    return render(request, 'user/inicio.html', context)
 
 @login_required
 def negocio(request):
@@ -65,12 +66,53 @@ def ajustes(request):
     return render(request, 'user/ajustes.html')
 
 @login_required
-def estoque(request):
-    return render(request, 'user/estoque.html')
-
-@login_required
 def negocio(request):
-    return render(request, 'user/negocio.html')
+    is_owner = bool(Business.objects.filter(ceo=request.user.pk))
+    is_worker = bool(request.user.business)
+    if is_owner:
+        condition = 'owner'
+    elif is_worker:
+        condition = 'worker'
+    else:
+        condition = 'free'
+    modal = None
+    business = None
+    invites = None
+    if not is_worker:
+        business = BusinessForm()
+        if request.method == 'POST':
+            if request.POST.get('bus'):
+                business = BusinessForm(request.POST)
+                if business.is_valid():
+                    if business.validate():
+                        business.save(commit=False)
+                        business.instance.ceo = request.user
+                        pk = business.save().pk
+                        user = CustomUser.objects.get(pk=request.user.pk)
+                        user.business_id = pk
+                        user.save()
+                        business = BusinessForm()
+                        return HttpResponseRedirect(reverse('negocio'))
+                modal = 'business'
+            elif request.POST.get('accept') or request.POST.get('decline'):
+                convite(request)
+        invites =  CustomUser.objects.get(pk=request.user.pk).user_invitations.all()
+    elif is_owner:
+        to_add = Business.objects.get(pk=request.user.business.pk)
+        business = ColaboratorForm()
+        if request.POST.get('add'):
+            business = ColaboratorForm(request.POST)
+            if business.is_valid():
+                if business.validate():
+                    user = CustomUser.objects.get(email=business.cleaned_data['email'])
+                    to_add.invitations.add(user)
+                    to_add.save()
+                    business = ColaboratorForm()
+            modal = 'add'
+        invites = to_add.invitations.all()
+        
+    context = {'condition': condition, 'business': business, 'modal': modal, 'invites': invites}
+    return render(request, 'user/negocio.html', context)
 
 @login_required
 def relatorios(request):
@@ -79,3 +121,14 @@ def relatorios(request):
 @login_required
 def servicos(request):
     return render(request, 'user/servicos.html')
+
+@login_required
+def convite(request):
+    business_id = request.POST.get('id')
+    if request.POST.get('decline'):
+        request.user.user_invitations.remove(business_id)
+    elif request.POST.get('accept'):
+        request.user.business_id=business_id
+        request.user.save()
+        request.user.user_invitations.clear()
+        return HttpResponseRedirect(reverse('negocio'))

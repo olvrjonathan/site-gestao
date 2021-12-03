@@ -1,19 +1,20 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
+from django.forms import widgets
 from .models import CustomUser, Business
 #from django.core.exceptions import ValidationError
 #from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth import authenticate, login
 import datetime
 
 class BusinessForm(forms.ModelForm):
     class Meta:
         model = Business
-        fields = ('name', 'cnpj_cpf',)
+        fields = ('name', 'cnpj_cpf', 'ceo')
         labels = {
             'name': 'Nome do negócio',
             'cnpj_cpf': 'Seu CPF/CNPJ da empresa'
         }
+        widgets = {'ceo': forms.HiddenInput()}
 
     def validate(self):
         if len(self.cleaned_data['cnpj_cpf']) in (11,14) and self.cleaned_data['cnpj_cpf'].isdigit():
@@ -21,6 +22,20 @@ class BusinessForm(forms.ModelForm):
         else:
             self.add_error('cnpj_cpf', 'Insira um CNPJ/CPF válido.')
             return False
+
+
+class ColaboratorForm(forms.Form):
+    email = forms.EmailField(label='E-mail do colaborador')
+
+    def validate(self):
+        email = self.cleaned_data['email']
+        if email not in map(lambda x: x.email, CustomUser.objects.filter(business__isnull = True)):
+            self.add_error('email', 'Usuário já é colaborador de um negócio.')
+            return False
+        if not CustomUser.objects.filter(email=email):
+            self.add_error('email', 'Não há usuário cadastrado com este e-mail.')
+            return False
+        return True
 
 #---------------------------------------------------------------------------------------------
 
@@ -33,9 +48,8 @@ class CustomUserLoginForm(AuthenticationForm):
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('email', 'business', 'first_name', 'last_name', 'cpf', 'birth_date')
+        fields = ('email', 'first_name', 'last_name', 'cpf', 'birth_date')
         labels = {
-            'business': 'Associação empresarial',
             'cpf': 'CPF',
             'last_name': 'Sobrenome',
             'birth_date': 'Data de nascimento'

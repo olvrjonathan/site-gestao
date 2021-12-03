@@ -61,6 +61,19 @@ h2 a:hover, h3 a:hover {
 } */
 #main {
   padding-top: 72px;
+  height: 100vh;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#main footer {
+  margin-top: auto;
 }
 
 .asteriskField {
@@ -97,9 +110,17 @@ h2 a:hover, h3 a:hover {
   background-color: white;
 }
 
-#colab {
-  margin: 0 2% 0 2%;
+.colab {
+  margin: 0 2% 10px 2%;
   width: 96%;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.action-row:hover {
+  cursor: pointer;
 }
 
 #carousel {
@@ -159,5 +180,9 @@ h3 a {
 
 h3 a:hover {
   color: white;
+}
+
+h5 {
+  margin-bottom: 75px;
 }
 /*# sourceMappingURL=style.css.map */
