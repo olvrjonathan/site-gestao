@@ -89,13 +89,18 @@ class Business(models.Model):
 class Service(models.Model):
     business = models.ForeignKey('Business', on_delete=models.CASCADE)
     category = models.ForeignKey('ServiceCategory', on_delete=models.SET_NULL, null=True)
-    title = models.CharField(max_length=30)
     description = models.CharField(max_length=300, blank=True)
     duration = models.DurationField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
+
+class ServiceAdd(models.Model):
+    business = models.CharField(max_length=30)
+    description = models.CharField(max_length=300, blank=True)
+    price = models.DecimalField(max_digits=7, decimal_places=2)
+    duration = models.DurationField()
     image = models.ImageField(upload_to="img/%y")
-    def __str__(self) -> str:
-        return self.title
+    def __str__(self):
+        return self.business
 
 
 class ServiceCategory(models.Model):

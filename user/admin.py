@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from user.models import CustomUser, Business, Service, ServiceCategory, Booking
+from user.models import CustomUser, Business, Service, ServiceAdd, ServiceCategory, Booking
 
 # Formulário para criação de usuário
 class UserCreationForm(forms.ModelForm):
@@ -74,6 +74,7 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(CustomUser, UserAdmin)
 admin.site.register(Business)
 admin.site.register(Service)
+admin.site.register(ServiceAdd)
 admin.site.register(ServiceCategory)
 admin.site.register(Booking)
 # Remove o registro do modelo de grupo, pois as permissões padrão não estão sendo usadas

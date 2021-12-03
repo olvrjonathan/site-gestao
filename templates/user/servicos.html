@@ -185,12 +185,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="POST" class="post-form" enctype="multipart/form-data">
-							<div class="mb-2">
-                                {% csrf_token %}
-								{{ form.as_p }}
-								<button type="submit" name = "reg" class="btn btn-lg btn-sucess" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
+                        <form method="POST" class="post-form" enctype="multipart/form-data">			
+                            {% csrf_token %}
+							{{ service_form.as_p }}	
                         </form>
 
 						<hr>
@@ -205,7 +202,7 @@
 							<div class="col-lg-4 col-md-4 col-12" > 
 						<div class="text-center mt-2"> 
 							<img src="{{x.image.url}}" height="70%" width="70%" class="img-thumbnail" alt="...">  
-							<h2 class="text-center" >{{x.caption}}</h2></div> 
+							<h2 class="text-center" >{{x.business}}</h2></div> 
 							</div> 
 						{% if forloop.counter|divisibleby:4 %} 
 						</div> 

@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from .models import CustomUser, Service
+from .models import CustomUser, ServiceAdd
 from .forms import BusinessForm, CustomUserChangeForm, CustomUserCreationForm, CustomUserLoginForm, BusinessForm, ServiceForm
 from django.shortcuts import render
 from django.urls import reverse
@@ -56,7 +56,7 @@ def index(request):
                         return HttpResponseRedirect(reverse('sucesso'))
     else:
         service_form = ServiceForm()
-        img = Service.objects.all()
+        img = ServiceAdd.objects.all()
     context = {'signup': signup, 'credentials': credentials, 'img':img, 'service_form':service_form}
     return render(request, 'user/index.html', context)
 
