@@ -90,6 +90,13 @@ $theme_purple:#6c63ff;
     cursor:pointer;
 }
 
+#name {
+    text-align: center;
+    color: $favorite-color;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
 #carousel {
     height: 600px;
 }

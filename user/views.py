@@ -94,23 +94,29 @@ def negocio(request):
                         business = BusinessForm()
                         return HttpResponseRedirect(reverse('negocio'))
                 modal = 'business'
-            elif request.POST.get('accept') or request.POST.get('decline'):
-                convite(request)
+            if request.POST.get('accept') or request.POST.get('decline'):
+                return convite(request)
         invites =  CustomUser.objects.get(pk=request.user.pk).user_invitations.all()
-    elif is_owner:
+    elif condition == 'owner':
         to_add = Business.objects.get(pk=request.user.business.pk)
         business = ColaboratorForm()
-        if request.POST.get('add'):
-            business = ColaboratorForm(request.POST)
-            if business.is_valid():
-                if business.validate():
-                    user = CustomUser.objects.get(email=business.cleaned_data['email'])
-                    to_add.invitations.add(user)
-                    to_add.save()
-                    business = ColaboratorForm()
-            modal = 'add'
+        if request.method == 'POST':
+            if request.POST.get('add'):
+                business = ColaboratorForm(request.POST)
+                if business.is_valid():
+                    if business.validate():
+                        user = CustomUser.objects.get(email=business.cleaned_data['email'])
+                        to_add.invitations.add(user)
+                        to_add.save()
+                        business = ColaboratorForm()
+                modal = 'add'
+            if request.POST.get('erase') or request.POST.get('delete'):
+                return convite(request)
         invites = to_add.invitations.all()
-        
+    elif condition == 'worker':
+        if request.method == 'POST':
+            if request.POST.get('leave'):
+                return convite(request)
     context = {'condition': condition, 'business': business, 'modal': modal, 'invites': invites}
     return render(request, 'user/negocio.html', context)
 
@@ -124,11 +130,20 @@ def servicos(request):
 
 @login_required
 def convite(request):
-    business_id = request.POST.get('id')
+    id = request.POST.get('id')
     if request.POST.get('decline'):
-        request.user.user_invitations.remove(business_id)
+        request.user.user_invitations.remove(id)
     elif request.POST.get('accept'):
-        request.user.business_id=business_id
+        request.user.business_id=id
         request.user.save()
         request.user.user_invitations.clear()
-        return HttpResponseRedirect(reverse('negocio'))
+    elif request.POST.get('erase'):
+        request.user.business.invitations.remove(id)
+    elif request.POST.get('leave'):
+        request.user.business_id = None
+        request.user.save()
+    elif request.POST.get('delete'):
+        request.user.business.invitations.clear()
+        request.user.business.delete()
+        #Business.objects.filter(pk=id).delete()
+    return HttpResponseRedirect(reverse('negocio'))

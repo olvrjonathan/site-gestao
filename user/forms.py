@@ -29,7 +29,7 @@ class ColaboratorForm(forms.Form):
 
     def validate(self):
         email = self.cleaned_data['email']
-        if email not in map(lambda x: x.email, CustomUser.objects.filter(business__isnull = True)):
+        if email in map(lambda x: x.email, CustomUser.objects.filter(business__isnull = False)):
             self.add_error('email', 'Usuário já é colaborador de um negócio.')
             return False
         if not CustomUser.objects.filter(email=email):

@@ -50,7 +50,7 @@
 		</div>
 	</div>
 	{% if invites %}
-	<table class="table colab mx-4 mt-2 mb-5">
+	<table class="table table-hover colab mx-4 mt-2 mb-5">
 		<thead>
 			<tr>
 				<th scope="col">Nome do convidado</th>
@@ -59,13 +59,36 @@
 		</thead>
 	<tbody>
 	{% for user in invites %}
-			<tr>
+			<tr class="action-row" onclick="JavaScript:Modal('{{ user.pk }}')">
 				<td>{{ user.first_name }} {{ user.last_name }}</td>
 				<td>{{ user }}</td>
 			</tr>
 	{% endfor %}
 		</tbody>
 	</table>
+
+	{% for user in invites %}
+	<div class="modal fade" id="{{ user.pk }}" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Deseja apagar o convite feito a {{ user.first_name }} {{ user.last_name }}?</h4>
+						<button class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+					</div>
+					<div class="modal-body mt-5">
+						<form method="POST" class="post-form">
+						{% csrf_token %}
+							<input type="hidden" value="{{ user.pk }}" name="id">
+							<div class="d-flex flex-row justify-content-between">
+								<button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
+								<input class="btn btn-danger" name="erase" type="submit" value="Apagar">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
 	{% endif %}
 	{% endif %}
 
@@ -116,7 +139,7 @@
 		</div>
 
 		{% for business in invites %}
-			<div class="modal fade" id="{{ business.pk }}" tabindex="-1" role="dialog">
+		<div class="modal fade" id="{{ business.pk }}" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -140,8 +163,10 @@
 	{% endif %}
 
 	{% if condition != 'free' %}
+
+	<h2 id="name"> {{ user.business }}</h2>
 	<!-- Tabela para mostrar os colaboradores -->
-	<table class="table colab mx-4">
+	<table class="table table-hover colab mx-4">
 
 		<!-- Head da tabela, colunas -->
 		<thead>
@@ -176,6 +201,59 @@
 			</tr>
 		</tbody>
 	</table>
+	{% endif %}
+
+	{% if condition == 'worker' %}
+		<div class="d-grid mx-auto m-2">
+			<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#leave">Sair do negócio</button>
+		</div>
+
+		<div class="modal fade" id="leave" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Deseja sair do negócio?</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+					</div>
+					<div class="modal-body">
+						<form method="POST" class="post-form">
+							{% csrf_token %}
+							<div class="d-flex flex-row justify-content-between">
+								<button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
+								<input class="btn btn-danger" name="leave" type="submit" value="Sair">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	{% if condition == 'owner' %}
+		<div class="d-grid mx-auto m-2">
+			<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete">Apagar o negócio</button>
+		</div>
+
+		<div class="modal fade" id="delete" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Deseja excluir o negócio?</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+					</div>
+					<div class="modal-body">
+						<form method="POST" class="post-form">
+							{% csrf_token %}
+							<input type="hidden" value="{{ user.business.pk }}" name="id">
+							<div class="d-flex flex-row justify-content-between">
+								<button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
+								<input class="btn btn-danger" name="delete" type="submit" value="Apagar">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	{% endif %}
 
 	{% if modal %}
