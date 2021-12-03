@@ -1,4 +1,3 @@
-from django.db import connection
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -12,27 +11,31 @@ def redirect(request):
 
 def entrar(request):
     if request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('agendamento'))
-    if request.method != 'POST':
-        signup = ClientCreationForm()
-        credentials = ClientLoginForm()
-    elif request.method == 'POST':
-        print(request.POST)
+        if request.user.is_client:
+            return HttpResponseRedirect(reverse('agendamento'))
+        return HttpResponseRedirect(reverse('inicio'))
+    signup = ClientCreationForm()
+    credentials = ClientLoginForm()
+    if request.method == 'POST':
         if request.POST.get('reg'):
             signup = ClientCreationForm(request.POST)
             if signup.is_valid():
                 if signup.validate():
-                    user = signup.save(commit=False) # Permite alterações antes de salvar
-                    user.save()
-                    return HttpResponseRedirect(reverse('sucesso'))
+                    signup.save(commit=False)
+                    signup.instance.is_client = True
+                    signup.save()
+                    return HttpResponseRedirect(reverse('entrar'))
         elif request.POST.get('log'):
-            email = request.POST.get('email')
-            password = request.POST.get('password')
-            user = authenticate(request, email=email, password=password)
-            if user:
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponseRedirect(reverse('sucesso'))
+            credentials = ClientLoginForm(request, data=request.POST)
+            if credentials.is_valid():
+                if credentials.validate():
+                    email = credentials.cleaned_data.get('username')
+                    password = credentials.cleaned_data.get('password')
+                    user = authenticate(request, email=email, password=password)
+                    if user:
+                        if user.is_active:
+                            login(request, user)
+                            return HttpResponseRedirect(reverse('agendamento'))
             credentials = ClientLoginForm(request.POST)
     context = {'signup': signup, 'credentials': credentials}
     return render(request, 'client/entrar.html', context)

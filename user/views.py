@@ -28,6 +28,8 @@ def all(request):
     return render(request, 'user/all.html', context)
 
 def inicio(request):
+    if request.user.is_authenticated and request.user.is_client:
+        return HttpResponseRedirect(reverse('entrar'))
     signup = CustomUserCreationForm()
     credentials = CustomUserLoginForm()
     modal = None

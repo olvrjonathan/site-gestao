@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from django.forms import widgets
 from .models import CustomUser, Business
 #from django.core.exceptions import ValidationError
 #from django.utils.translation import ugettext_lazy as _
@@ -17,6 +16,7 @@ class BusinessForm(forms.ModelForm):
         widgets = {'ceo': forms.HiddenInput()}
 
     def validate(self):
+        self.cleaned_data['name'] = self.cleaned_data['name'].title()
         if len(self.cleaned_data['cnpj_cpf']) in (11,14) and self.cleaned_data['cnpj_cpf'].isdigit():
             return True
         else:
@@ -43,6 +43,13 @@ class CustomUserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         self.error_messages['invalid_login'] = 'Endereço de e-mail ou senha incorretos.'
         super().__init__(*args, **kwargs)
+
+    def validate(self):
+        if self.is_client:
+            self.add_error('email', 'Crie uma conta para entrar como usuário do serviço Hostess.')
+            return False
+        else:
+            return True
 
 
 class CustomUserCreationForm(UserCreationForm):

@@ -39,7 +39,7 @@ class CustomUser(AbstractBaseUser):
     cpf = models.CharField(max_length=11, null=True, blank=False)
     birth_date = models.DateField('Data de nascimento', null=True, blank=False)
     phone_number = models.CharField(max_length=11, null=True, blank=False, unique=True,
-                                    help_text='Insira número no formato (xx) 98765-4321')
+                                    help_text='Insira apenas dígitos no formato (xx) 98765-4321.')
     is_client = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -77,7 +77,7 @@ class Business(models.Model):
     name = models.CharField(max_length=50, unique=True)
     register_date = models.DateField(auto_now_add=True)
     ceo = models.OneToOneField('CustomUser', on_delete=models.RESTRICT,
-                                related_name='business_ceo', blank=True)
+                                related_name='business_ceo', blank=True, unique=True)
     invitations = models.ManyToManyField('CustomUser', related_name='user_invitations',
                                         blank=True, limit_choices_to={'business': None})
     class Meta:
