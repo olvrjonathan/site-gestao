@@ -185,46 +185,36 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="" method="post" enctype="multipart/form-data">
 							<div class="mb-2">
-                                <label for="type" class="form-label">Tipo de serviço</label>
-                                <select class="form-select" id="type" required>
-                                    <option selected disabled value="">Selecione</option>
-                                    <option value="1">Cortes de cabelo</option>
-                                    <option value="2">Tatuagem</option>
-                                </select>
-                            </div>
-                            <!-- Inserir o nome do serviço no form -->
-							<div class="mb-2">
-								<label for="servico" class="form-label">Serviço</label>
-								<input type="text" class="form-control" id="servico" required>
-							</div>
-							
-							<!-- Inserir o preço do serviço no form -->
-							<div class="mb-2">
-								<label for="price" class="form-label">Preço (R$)</label>
-								<input type="text" class="form-control" id="price" required>
-							</div>
-							
-							<!-- Inserir a duração do serviço no form -->
-							<div class="mb-2">
-								<label for="duration" class="form-label">Duração (min)</label>
-								<input type="text" class="form-control" id="duration" required>
-							</div>
-							<!-- Inserir a descrição do serviço no form -->
-							<div class="mb-2">
-                                <label for="description" class="form-label">Descrição</label>
-                                <textarea class="form-control" id="description" rows="3"></textarea>
-                            </div>
-							<!-- Inserir um arquivo no form -->
-							<div class="mb-2">
-								<label for="imagem" class="form-label">Adicione uma imagem para o serviço</label>
-								<input type="file" class="form-control" id="imagem">
-							</div>
-							<div>
-								<button type="submit" class="btn btn-success float-end mt-2">Concluir</button>
+                                {% csrf_token %}
+								{{ form.as_p }}
+								<button type="submit" class="btn btn-lg btn-sucess" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
                         </form>
+
+						<hr>
+						{% if obj %}
+						<h4>Carregamento Concluído: {{img_obj.business}}</h4>
+						<img src="{{obj.image.url}}" alt="image" class="img-thumbnail" height= 50% width="50%"> 
+						</hr>
+						{% endif %}
+
+						{% for x in img %} 
+						{% if forloop.first %}<div class="row ">{% endif %} 
+							<div class="col-lg-4 col-md-4 col-12" > 
+						<div class="text-center mt-2"> 
+							<img src="{{x.image.url}}" height="70%" width="70%" class="img-thumbnail" alt="...">  
+							<h2 class="text-center" >{{x.caption}}</h2></div> 
+							</div> 
+						{% if forloop.counter|divisibleby:4 %} 
+						</div> 
+						<div class=row>{% endif %}
+							
+							{% if forloop.last %}</div>{% endif %}
+							
+						{% endfor %}
+
                     </div>
                 </div>
             </div>

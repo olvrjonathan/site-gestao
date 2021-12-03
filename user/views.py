@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
-from .models import CustomUser
-from .forms import BusinessForm, CustomUserChangeForm, CustomUserCreationForm, CustomUserLoginForm, BusinessForm
+from .models import CustomUser, Service
+from .forms import BusinessForm, CustomUserChangeForm, CustomUserCreationForm, CustomUserLoginForm, BusinessForm, ServiceForm
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
@@ -33,6 +33,11 @@ def index(request):
     signup = CustomUserCreationForm()
     credentials = CustomUserLoginForm()
     if request.method == 'POST':
+        service_form = ServiceForm(data=request.POST, files=request.POST)
+        if service_form.is_valid():
+            service_form.save()
+            obj = service_form.instance
+            return render(request, "servicos.html",{"obj":obj})
         if request.POST.get('reg'):
             signup = CustomUserCreationForm(request.POST)
             if signup.is_valid():
@@ -49,7 +54,10 @@ def index(request):
                     if user.is_active:
                         login(request, user)
                         return HttpResponseRedirect(reverse('sucesso'))
-    context = {'signup': signup, 'credentials': credentials}
+    else:
+        service_form = ServiceForm()
+        img = Service.objects.all()
+    context = {'signup': signup, 'credentials': credentials, 'img':img, 'service_form':service_form}
     return render(request, 'user/index.html', context)
 
 @login_required

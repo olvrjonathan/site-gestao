@@ -93,6 +93,9 @@ class Service(models.Model):
     description = models.CharField(max_length=300, blank=True)
     duration = models.DurationField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
+    image = models.ImageField(upload_to="img/%y")
+    def __str__(self) -> str:
+        return self.title
 
 
 class ServiceCategory(models.Model):

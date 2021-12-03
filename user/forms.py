@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from .models import CustomUser, Business
+from .models import CustomUser, Business, Service
 #from django.core.exceptions import ValidationError
 #from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth import authenticate, login
@@ -64,3 +64,15 @@ class CustomUserChangeForm(UserChangeForm):
         labels = {'business': 'Associação empresarial'}
 
 #---------------------------------------------------------------------------------------------
+
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Service
+        fields = ('business', 'description','duration','price','image')
+        labels = {
+            'business': 'Serviço',
+            'description': 'Descrição',
+            'price': 'Preço (R$)',
+            'duration': 'Duração (min)',
+            'image': 'Adicione uma imagem para o serviço'
+        }
