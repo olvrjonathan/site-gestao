@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from .models import CustomUser, Business
+from .models import CustomUser, Business, Booking
 from .forms import *
 from django.shortcuts import render
 from django.urls import reverse
@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 # from datetime import date
 # from random import randint
 #from django.utils import timezone
+from django.db.models import F
+from django.db.models import Q
 
 # |linebreaksbr
 
@@ -49,12 +51,14 @@ def inicio(request):
     return render(request, 'user/inicio.html', context)
 
 @login_required
-def negocio(request):
-    return render(request, 'user/negocio.html')
-
-@login_required
 def agenda(request):
-    return render(request, 'user/agenda.html')
+    days = ['Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo']*2
+    today = datetime.date.today().weekday()
+    days = days[today-1:today+6]
+    days[1] = 'Hoje'
+    #pk = request.user.business.pk
+    context = {'days': days, 'today': today, }
+    return render(request, 'user/agenda.html', context)
 
 @login_required
 def ajustes(request):
@@ -73,6 +77,7 @@ def negocio(request):
     modal = None
     business = None
     invites = None
+    colab = None
     if not is_worker:
         business = BusinessForm()
         if request.method == 'POST':
@@ -93,6 +98,7 @@ def negocio(request):
                 return convite(request)
         invites =  CustomUser.objects.get(pk=request.user.pk).user_invitations.all()
     elif condition == 'owner':
+        colab = CustomUser.objects.filter(business=request.user.business.pk)
         to_add = Business.objects.get(pk=request.user.business.pk)
         business = ColaboratorForm()
         if request.method == 'POST':
@@ -109,10 +115,11 @@ def negocio(request):
                 return convite(request)
         invites = to_add.invitations.all()
     elif condition == 'worker':
+        colab = CustomUser.objects.filter(business=request.user.business.pk)
         if request.method == 'POST':
             if request.POST.get('leave'):
                 return convite(request)
-    context = {'condition': condition, 'business': business, 'modal': modal, 'invites': invites}
+    context = {'condition': condition, 'business': business, 'modal': modal, 'invites': invites, 'colab': colab}
     return render(request, 'user/negocio.html', context)
 
 @login_required

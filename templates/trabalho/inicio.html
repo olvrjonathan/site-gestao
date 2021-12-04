@@ -1,0 +1,22 @@
+{% extends "trabalho/template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+    <title>Trabalhos</title>
+{% endblock %}
+
+{% block content %}
+    <section class="bg-dark text-light p-5 text-center mt-5">
+        <div class="container">
+        <h1> Parte 3 do trabalho </h1>
+            <div class="d-flex flex-row justify-content-center">
+                <a type="button" class="btn btn-warning" href="#">Dominique</a>
+                <a type="button" class="btn btn-success" href="#">Iara</a>
+                <a type="button" class="btn btn-primary" href="#">Jonathan</a>
+                <a type="button" class="btn btn-danger" href="#">Juliana</a>
+                <a type="button" class="btn btn-info" href="{% url 'marcelo' %}">Marcelo</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "trabalho/template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+    <title>Trabalho - Marcelo</title>
+{% endblock %}
+
+{% block content %}
+    <h2><a href="{% url 'inicio_trabalho' %}">Voltar à lista de trabalhos<a></h2>
+    <section class="bg-dark text-light p-5 text-center mt-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-around">
+                <div class="col-md-6 col-lg-6">
+                    <h1>Regressão linear</h1>
+                    <p class="lead my-3">Mostra a tendência negativa da receita adquirida por dia, que é semelhante à tendência de minutos agendados para trabalho.</p>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    {{ plot|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

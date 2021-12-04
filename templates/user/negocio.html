@@ -179,26 +179,12 @@
 		<!-- Body da tabela, linhas -->
 		<tbody>
 			<!-- Linhas: imagem, nome e email -->
+			{% for person in colab %}
 			<tr>
-				<td><img src="{% static 'imagens/a1.jpg' %}" alt="Imagem" height="70" width="70" class="mx-4"/>Margarida Carrilha</td>
-				<td>margaridac12@email.com</td>
+				<td> {{ person.first_name }} {{ person.last_name }} </td>
+				<td> {{ person }} </td>
 			</tr>
-			<tr>
-				<td><img src="{% static 'imagens/a2.jpg' %}" alt="Imagem" height="70" width="70" class="mx-4"/>Alexandro Matias</td>
-				<td>alexandromat90@email.com</td>
-			</tr>
-			<tr>
-				<td><img src="{% static 'imagens/a3.jpg' %}" alt="Imagem" height="70" width="70" class="mx-4"/>Angelo Gaspar</td>
-				<td>angelogpr3453@email.com</td>
-			</tr>
-			<tr>
-				<td><img src="{% static 'imagens/a4.jpg' %}" alt="Imagem" height="70" width="70" class="mx-4"/>Leila Quintana</td>
-				<td>leilaquintana@email.com</td>
-			</tr>
-			<tr>
-				<td><img src="{% static 'imagens/a5.jpg' %}" alt="Imagem" height="70" width="70" class="mx-4"/>Mayra Durães Vieira</td>
-				<td>mayradvieira@email.com</td>
-			</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 	{% endif %}

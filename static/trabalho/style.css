@@ -1,0 +1,42 @@
+* {
+    font-family: Arial;
+}
+
+#main {
+    background-color: #212529;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 50px 0;
+}
+
+h2 {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    border: 2px solid darkgray;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #212529;
+    margin-bottom: 20px;
+}
+
+h2 a {
+    text-decoration: none;
+    color: white;
+}
+
+h2 a:hover {
+    color: darkgray;
+}
+
+a.btn {
+    margin: 0 20px;
+}
+
+section.bg-dark {
+    height: 80vh;
+    margin-top: 80px!important;
+    padding-top: 80px;
+}

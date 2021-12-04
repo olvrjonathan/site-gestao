@@ -17,13 +17,9 @@
             <tr class="table-header">
             <!--Dias da Semana-->
                 <th> <b> Horários/Dias </b></th>
-                <th> Domingo </th>
-                <th> Segunda </th>
-                <th> Terça </th>
-                <th> Quarta </th>
-                <th> Quinta </th>
-                <th> Sexta </th>
-                <th> Sábado</th>
+                {% for day in days %}
+                <th> {{ day }} </th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>
