@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect, request
+from django.http import HttpResponseRedirect
 from .models import CustomUser, Business
 from .forms import *
 from django.shortcuts import render
@@ -19,13 +19,6 @@ def redirect(request):
 def sair(request):
     logout(request)
     return HttpResponseRedirect(reverse('inicio'))
-
-def sucesso(request):
-    return render(request, 'user/sucesso.html')
-
-def all(request):
-    context = {'users': CustomUser.objects.all()}
-    return render(request, 'user/all.html', context)
 
 def inicio(request):
     if request.user.is_authenticated and request.user.is_client:
@@ -147,5 +140,7 @@ def convite(request):
     elif request.POST.get('delete'):
         request.user.business.invitations.clear()
         request.user.business.delete()
-        #Business.objects.filter(pk=id).delete()
     return HttpResponseRedirect(reverse('negocio'))
+
+def pain(request, *args):
+    return HttpResponseRedirect(reverse('inicio'))

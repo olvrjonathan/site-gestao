@@ -14,10 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from user import views, extra_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('client.urls')),
     path('user/', include('user.urls')),
+    path('trabalho/', extra_views.trabalho),
+    re_path(r'(accounts/login).*', views.pain) # Django insiste em redirecionar aqui quando o usuário
+                                               # não está logado e acessa conteúdo que requer isso
 ]

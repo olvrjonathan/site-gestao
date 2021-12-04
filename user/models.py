@@ -92,7 +92,7 @@ class Service(models.Model):
     category = models.ForeignKey('ServiceCategory', on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=30)
     description = models.CharField(max_length=300, blank=True)
-    duration = models.DurationField()
+    duration = models.SmallIntegerField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
 
 
@@ -103,10 +103,10 @@ class ServiceCategory(models.Model):
 
 
 class Booking(models.Model):
-    service = models.OneToOneField('Service', on_delete=models.RESTRICT)
+    service = models.ForeignKey('Service', on_delete=models.RESTRICT)
     client = models.ForeignKey('CustomUser', on_delete=models.SET_NULL,
                                 null=True, limit_choices_to={'is_client': True})
-    date_time = models.DateField()
+    date_time = models.DateTimeField()
     paid_out = models.BooleanField(default=False)
     comment = models.CharField(max_length=300, null=True)
 
