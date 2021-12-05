@@ -1,0 +1,46 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.asteriskField {
+  display: none;
+}
+
+.form-text {
+  font-size: 0.625rem;
+}
+
+#logout {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
+#logout a {
+  text-decoration: none;
+  color: gray;
+}
+
+#register-container, #login-container {
+  width: auto;
+}
+
+@media screen and (min-width: 576px) {
+  #register-container, #login-container {
+    width: 40vw;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #back {
+    background: url("../imagens/schedule.svg") no-repeat fixed center;
+    background-size: 25%;
+  }
+  #back .form-text {
+    font-size: 0.8vw;
+  }
+  #back #register-container, #back #login-container {
+    width: 30vw;
+  }
+}
+/*# sourceMappingURL=style.css.map */

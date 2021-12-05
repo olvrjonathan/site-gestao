@@ -28,6 +28,7 @@ def grafico(df):
     plt.xlabel(f'Dias a partir de {day}')
     plt.ylabel('Receita (azul) e minutos trabalhados (laranja)')
     plt.title('Tendência de receita ao longo do tempo')
+
     imgdata = StringIO()
     fig.savefig(imgdata, format='svg')
     imgdata.seek(0)
@@ -52,7 +53,7 @@ def graf(df):
 
     fig = plt.figure()
     plt.scatter(duration, price, color='purple')
-    plt.title('Preço vs Durção')
+    plt.title('Preço vs Duração')
     plt.xlabel('Duração')
     plt.ylabel('Preço')
     imgdata = StringIO()

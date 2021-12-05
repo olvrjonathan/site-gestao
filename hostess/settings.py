@@ -26,7 +26,7 @@ STATIC_DIR = BASE_DIR / 'static'
 SECRET_KEY = 'django-insecure-8m!==jw!%#qlp=mjz*u*10io4&fc+adto2)@)_p7v%lo%)4kq-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +45,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'crispy_forms',
     'user',
-    'client'
+    'client',
+    'trabalho',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -52,6 +54,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -115,13 +118,12 @@ AUTH_USER_MODEL = 'user.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    #'user.backends.UserBackend',
 ]
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'user/inicio'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'user/inicio'
+LOGIN_REDIRECT_URL = '/inicio/'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/inicio/'
 
 
 # Internationalization
@@ -144,6 +146,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

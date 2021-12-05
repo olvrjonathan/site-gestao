@@ -1,16 +1,10 @@
 from django.http import HttpResponseRedirect
-from .models import CustomUser, Business, Booking
+from .models import CustomUser, Business
 from .forms import *
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-#from django.template import RequestContext
-# from datetime import date
-# from random import randint
-#from django.utils import timezone
-from django.db.models import F
-from django.db.models import Q
 
 # |linebreaksbr
 

@@ -1,27 +1,17 @@
-"""hostess URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include, re_path
-from user import views
+from django.conf.urls import handler404, handler500
+from user.views import pain
+from client import views
+
+handler404 = views.error404
+handler500 = views.error500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('client.urls')),
-    path('user/', include('user.urls')),
+    path('cliente/', include('client.urls')),
+    path('', include('user.urls')),
     path('trabalho/', include('trabalho.urls')),
-    re_path(r'(accounts/login).*', views.pain) # Django insiste em redirecionar aqui quando o usuário
+    re_path(r'(accounts/login).*', pain) # Django insiste em redirecionar aqui quando o usuário
                                                # não está logado e acessa conteúdo que requer isso
 ]

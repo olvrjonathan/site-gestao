@@ -1,0 +1,25 @@
+{% extends "client/template.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Não encontrado</title>
+{% endblock %}
+
+{% block links %}
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        body {background-color: #212529}
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container bg-dark text-light text-center p-5">
+        <div class="d-md-flex flex-row align-items-center justify-content-between">
+            <div>
+                <h1>Página não encontrada</h1>
+                <p> Página não existe ou não foi encontrada. </p>
+            </div>
+            <img class="img-fluid d-block mx-5 size-small" src="{% static 'imagens/404.svg' %}" alt="Alguma coisa" />
+        </div>
+    </div>
+{% endblock %}
