@@ -128,15 +128,19 @@ def iara(request):
 
 
 
-def graf(df):
-    duration = df['duration'].values
-    price = df['price'].values
+def graf2(dfy):
+    dfy['n'] = 1
+    dfy = dfy[["category", "n"]]
+    dfy = dfy.groupby("category")
+    dfy = dfy.sum()
+    dfy.reset_index(inplace=True)
+    dfy.rename(columns={"index":"category"}, inplace=True)
 
     fig = plt.figure()
-    plt.scatter(duration, price, color='purple')
-    plt.title('Preço vs Durção')
-    plt.xlabel('Duração')
-    plt.ylabel('Preço')
+    plt.pie(dfy['n'], labels=dfy['category'],
+            autopct='%.2f', explode=(0, 0.3, 0, 0, 0 , 0, 0, 0, 0, 0))
+    plt.axis('equal')
+    plt.title('Categoria dos Serviços')
     imgdata = StringIO()
     fig.savefig(imgdata, format='svg')
     imgdata.seek(0)
@@ -146,41 +150,42 @@ def graf(df):
     return data
 
 def juliana(request):
-    df = pd.read_sql("""SELECT title, price, duration, date(date_time) AS date FROM
-                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id);""",
-                con=connection)
-    plot = graf(df)
-    return render(request, 'trabalho/dominique.html', {'plot': plot})
+    dfy = pd.read_sql("""SELECT * FROM
+                (user_service AS b INNER JOIN user_servicecategory AS s ON b.category_id = s.id);""",
+                  con=connection)
+    plot = graf2(dfy)
+    return render(request, 'trabalho/juliana.html', {'plot': plot})
 
 
+def graf3(df):
+    df['n'] = 1
+    df = df[["title", "n"]]
+    df = df.groupby("title")
+    df = df.sum()
+    df.reset_index(inplace=True)
+    df.rename(columns={"index":"title"}, inplace=True)
+    df = df.sort_values(by='n', ascending=False)
+    df = df.head(10)
+    df = df.sort_values(by='n')
 
+    fig = plt.figure()
+    plt.barh(df['title'], df['n'],
+                      color='darkorange', edgecolor='black', )
+    plt.title('Serviços mais frequentes')
+    plt.tight_layout()
+    imgdata = StringIO()
+    fig.savefig(imgdata, format='svg')
+    imgdata.seek(0)
 
-
-
-
-
-
-
-
+    data = imgdata.getvalue()
+    imgdata.close()
+    return data
 
 
 def jonathan(request):
-    df1 = pd.read_sql("""SELECT service_id, date(date_time) AS date FROM
-                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id)
-                WHERE paid_out = 1;""", con=connection)
+    df = pd.read_sql("""SELECT title, service_id FROM
+                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id);""",
+                  con=connection)
 
-    df2=df1['service_id'].value_counts()
-    df2 = df2.head(10)
-    df2 = pd.DataFrame(df2)
-    df2 
-    print(df2)
-
-    df_1 = pd.read_sql("""SELECT id, title FROM user_service""", con=connection)
-    df_2 = pd.DataFrame(df_1)
-    print(df_2)
-
-    context = {
-        'df2': df2.to_html(),
-        'df_2': df_2.to_html()
-    }
-    return render(request, 'trabalho/jonathan.html', context)
+    plot = graf3(df)
+    return render(request, 'trabalho/jonathan.html', {'plot': plot})
