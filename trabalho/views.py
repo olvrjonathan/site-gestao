@@ -45,3 +45,27 @@ def marcelo(request):
                 WHERE paid_out = 1;""", con=connection)
     plot = grafico(df[['price', 'duration', 'date']].groupby('date').agg(sum))
     return render(request, 'trabalho/marcelo.html', {'plot': plot})
+
+def graf(df):
+    duration = df['duration'].values
+    price = df['price'].values
+
+    fig = plt.figure()
+    plt.scatter(duration, price, color='purple')
+    plt.title('Preço vs Durção')
+    plt.xlabel('Duração')
+    plt.ylabel('Preço')
+    imgdata = StringIO()
+    fig.savefig(imgdata, format='svg')
+    imgdata.seek(0)
+
+    data = imgdata.getvalue()
+    imgdata.close()
+    return data
+
+def dominique(request):
+    df = pd.read_sql("""SELECT title, price, duration, date(date_time) AS date FROM
+                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id);""",
+                con=connection)
+    plot = graf(df)
+    return render(request, 'trabalho/dominique.html', {'plot': plot})
