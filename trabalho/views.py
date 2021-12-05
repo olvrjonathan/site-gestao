@@ -86,14 +86,21 @@ def dominique(request):
 
 
 def graf7(df):
-    duration = df['duration'].values
-    price = df['price'].values
+    df['n'] = 1
+    df = df[["name", "n"]]
+    df = df.groupby("name")
+    df = df.sum()
+    df.reset_index(inplace=True)
+    df.rename(columns={"index":"name"}, inplace=True)
+    df = df.sort_values(by='n', ascending=False)
+    df = df.head(10)
+    df = df.sort_values(by='n')
 
     fig = plt.figure()
-    plt.scatter(duration, price, color='purple')
-    plt.title('Preço vs Durção')
-    plt.xlabel('Duração')
-    plt.ylabel('Preço')
+    plt.barh(df['name'], df['n'],
+                      color='darkorange', edgecolor='black', )
+    plt.title('Serviços mais frequentes')
+    plt.tight_layout()
     imgdata = StringIO()
     fig.savefig(imgdata, format='svg')
     imgdata.seek(0)
@@ -103,9 +110,9 @@ def graf7(df):
     return data
 
 def iara(request):
-    df = pd.read_sql("""SELECT title, price, duration, date(date_time) AS date FROM
-                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id);""",
-                con=connection)
+    df = pd.read_sql("""SELECT name, business_id FROM
+                (user_customuser AS b INNER JOIN user_business AS s ON b.business_id = s.id) WHERE is_client == False;""",
+                  con=connection)
     plot = graf7(df)
     return render(request, 'trabalho/iara.html', {'plot': plot})
 
