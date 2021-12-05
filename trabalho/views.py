@@ -85,9 +85,9 @@ def dominique(request):
 
 
 
-def graf(df):
-    duration = df['service_id'].unique.values
-    price = df['service_id'].value_counts()
+def graf7(df):
+    duration = df['duration'].values
+    price = df['price'].values
 
     fig = plt.figure()
     plt.scatter(duration, price, color='purple')
@@ -106,8 +106,8 @@ def iara(request):
     df = pd.read_sql("""SELECT title, price, duration, date(date_time) AS date FROM
                 (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id);""",
                 con=connection)
-    plot = graf(df)
-    return render(request, 'trabalho/dominique.html', {'plot': plot})
+    plot = graf7(df)
+    return render(request, 'trabalho/iara.html', {'plot': plot})
 
 
 
