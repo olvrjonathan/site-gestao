@@ -80,7 +80,7 @@
 						{% csrf_token %}
 							<input type="hidden" value="{{ user.pk }}" name="id">
 							<div class="d-flex flex-row justify-content-between">
-								<button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
+								<a type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</a>
 								<input class="btn btn-danger" name="erase" type="submit" value="Apagar">
 							</div>
 						</form>
@@ -108,7 +108,7 @@
 				</thead>
 				<tbody>
 				{% for business in invites %}
-					<tr class="action-row" onclick="JavaScript:Modal('{{ business.pk }}')">
+					<tr class="action-row" onclick="Modal('{{ business.pk }}')">
 						<td>{{ business }}</td>
 						<td>{{ business.ceo.first_name }} {{ business.ceo.last_name }}</td>
 						<td>{{ business.ceo.email }}</td>
@@ -205,7 +205,7 @@
 						<form method="POST" class="post-form">
 							{% csrf_token %}
 							<div class="d-flex flex-row justify-content-between">
-								<button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
+								<a type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</a>
 								<input class="btn btn-danger" name="leave" type="submit" value="Sair">
 							</div>
 						</form>
@@ -232,7 +232,7 @@
 							{% csrf_token %}
 							<input type="hidden" value="{{ user.business.pk }}" name="id">
 							<div class="d-flex flex-row justify-content-between">
-								<button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</button>
+								<a type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Cancelar">Cancelar</a>
 								<input class="btn btn-danger" name="delete" type="submit" value="Apagar">
 							</div>
 						</form>

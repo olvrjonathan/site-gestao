@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser, Business
 #from django.core.exceptions import ValidationError
 #from django.utils.translation import ugettext_lazy as _
@@ -78,10 +78,20 @@ class CustomUserCreationForm(UserCreationForm):
         return valid
         
 
-class CustomUserChangeForm(UserChangeForm):
+class CustomUserChangeForm(forms.ModelForm):
+    def clean(self):
+        cleaned_data = super().clean()
+        email = self.cleaned_data['email']
+        if self.initial['email'] != email and CustomUser.objects.filter(email=email):
+            self.add_error('email', 'Já existe um usuário cadastrado com este e-mail.')
+        return cleaned_data
+
     class Meta:
         model = CustomUser
-        fields = ('email', 'business', )
-        labels = {'business': 'Associação empresarial'}
-
+        fields = ('email', 'first_name', 'last_name', )
+        labels = {
+            'first_name': 'Primeiro nome',
+            'last_name': 'Sobrenome'
+        }
+        
 #---------------------------------------------------------------------------------------------

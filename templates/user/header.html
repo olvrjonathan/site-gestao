@@ -37,6 +37,9 @@
                 <li class="nav-item">
                     <a href="{% url 'servicos' %}" class="nav-link">Serviços</a>
                 </li>
+                <li>
+                    <a href="{% url 'inicio_trabalho' %}" class="nav-link">Trabalho</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button">{{ user.first_name }}</a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
@@ -61,7 +64,7 @@
             <div class="modal-body">
                 <h5>Tem certeza?</h5>
                 <div class="d-flex flex-row justify-content-between">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</button>
+                    <a type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancelar</a>
                     <a type="button" class="btn btn-danger" href="{% url 'sair' %}">Sair</a>
                 </div>
             </div>

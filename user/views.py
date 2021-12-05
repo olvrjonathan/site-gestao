@@ -62,7 +62,27 @@ def agenda(request):
 
 @login_required
 def ajustes(request):
-    return render(request, 'user/ajustes.html')
+    user = request.user
+    data = {
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+    }
+    form = CustomUserChangeForm(initial=data)
+    modal = False
+    if request.method == 'POST':
+        if request.POST.get('delete_user'):
+            return button(request)
+        else:
+            form = CustomUserChangeForm(request.POST, instance=user, initial=data)
+            if form.has_changed():
+                if form.is_valid():
+                    form.save()
+                    return HttpResponseRedirect(reverse('ajustes'))
+                else:
+                    modal = True
+    context = {'form': form, 'modal': modal}
+    return render(request, 'user/ajustes.html', context)
 
 @login_required
 def negocio(request):
@@ -95,7 +115,7 @@ def negocio(request):
                         return HttpResponseRedirect(reverse('negocio'))
                 modal = 'business'
             if request.POST.get('accept') or request.POST.get('decline'):
-                return convite(request)
+                return button(request)
         invites =  CustomUser.objects.get(pk=request.user.pk).user_invitations.all()
     elif condition == 'owner':
         colab = CustomUser.objects.filter(business=request.user.business.pk)
@@ -112,13 +132,13 @@ def negocio(request):
                         business = ColaboratorForm()
                 modal = 'add'
             if request.POST.get('erase') or request.POST.get('delete'):
-                return convite(request)
+                return button(request)
         invites = to_add.invitations.all()
     elif condition == 'worker':
         colab = CustomUser.objects.filter(business=request.user.business.pk)
         if request.method == 'POST':
             if request.POST.get('leave'):
-                return convite(request)
+                return button(request)
     context = {'condition': condition, 'business': business, 'modal': modal, 'invites': invites, 'colab': colab}
     return render(request, 'user/negocio.html', context)
 
@@ -131,7 +151,7 @@ def servicos(request):
     return render(request, 'user/servicos.html')
 
 @login_required
-def convite(request):
+def button(request):
     id = request.POST.get('id')
     if request.POST.get('decline'):
         request.user.user_invitations.remove(id)
@@ -147,6 +167,10 @@ def convite(request):
     elif request.POST.get('delete'):
         request.user.business.invitations.clear()
         request.user.business.delete()
+    elif request.POST.get('delete_user'):
+        user = request.user
+        logout(request)
+        user.delete()
     return HttpResponseRedirect(reverse('negocio'))
 
 def pain(request, *args):
