@@ -1,0 +1,25 @@
+{% extends "trabalho/template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head %}
+    <title>Trabalho - Dominique</title>
+{% endblock %}
+
+{% block content %}
+    <h2><a href="{% url 'inicio_trabalho' %}">Voltar à lista de trabalhos<a></h2>
+    <section class="bg-dark text-light p-5 text-center mt-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-around">
+                <div class="col-md-6 col-lg-6">
+                    <h1>Há relação entre o lucro e a duração dos serviços?</h1>
+                    <p class="lead my-3">Os preços são por agendamento no dia, contamos como lucro obtido naquele dia,
+					e a duração é o tempo a ser realizado aquele serviço. De acordo com o gráfico, os lucros não tem relação com a duração dos serviços.</p>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    {{ plot|safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

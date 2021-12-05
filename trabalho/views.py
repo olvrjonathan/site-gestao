@@ -69,3 +69,118 @@ def dominique(request):
                 con=connection)
     plot = graf(df)
     return render(request, 'trabalho/dominique.html', {'plot': plot})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def graf(df):
+    duration = df['service_id'].unique.values
+    price = df['service_id'].value_counts()
+
+    fig = plt.figure()
+    plt.scatter(duration, price, color='purple')
+    plt.title('Preço vs Durção')
+    plt.xlabel('Duração')
+    plt.ylabel('Preço')
+    imgdata = StringIO()
+    fig.savefig(imgdata, format='svg')
+    imgdata.seek(0)
+
+    data = imgdata.getvalue()
+    imgdata.close()
+    return data
+
+def iara(request):
+    df = pd.read_sql("""SELECT title, price, duration, date(date_time) AS date FROM
+                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id);""",
+                con=connection)
+    plot = graf(df)
+    return render(request, 'trabalho/dominique.html', {'plot': plot})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def graf(df):
+    duration = df['duration'].values
+    price = df['price'].values
+
+    fig = plt.figure()
+    plt.scatter(duration, price, color='purple')
+    plt.title('Preço vs Durção')
+    plt.xlabel('Duração')
+    plt.ylabel('Preço')
+    imgdata = StringIO()
+    fig.savefig(imgdata, format='svg')
+    imgdata.seek(0)
+
+    data = imgdata.getvalue()
+    imgdata.close()
+    return data
+
+def juliana(request):
+    df = pd.read_sql("""SELECT title, price, duration, date(date_time) AS date FROM
+                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id);""",
+                con=connection)
+    plot = graf(df)
+    return render(request, 'trabalho/dominique.html', {'plot': plot})
+
+
+
+
+
+
+
+
+
+
+
+
+
+def jonathan(request):
+    df1 = pd.read_sql("""SELECT service_id, date(date_time) AS date FROM
+                (user_booking AS b INNER JOIN user_service AS s ON b.service_id = s.id)
+                WHERE paid_out = 1;""", con=connection)
+
+    df2=df1['service_id'].value_counts()
+    df2 = df2.head(10)
+    df2 = pd.DataFrame(df2)
+    df2 
+    print(df2)
+
+    df_1 = pd.read_sql("""SELECT id, title FROM user_service""", con=connection)
+    df_2 = pd.DataFrame(df_1)
+    print(df_2)
+
+    context = {
+        'df2': df2.to_html(),
+        'df_2': df_2.to_html()
+    }
+    return render(request, 'trabalho/jonathan.html', context)
