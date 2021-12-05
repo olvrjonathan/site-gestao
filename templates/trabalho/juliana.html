@@ -12,9 +12,8 @@
         <div class="container">
             <div class="row align-items-center justify-content-around">
                 <div class="col-md-6 col-lg-6">
-                    <h1>Há relação entre o lucro e a duração dos serviços?</h1>
-                    <p class="lead my-3">Os preços são por agendamento no dia, contamos como lucro obtido naquele dia,
-					e a duração é o tempo a ser realizado aquele serviço. De acordo com o gráfico, os lucros não tem relação com a duração dos serviços.</p>
+                    <h1>Qual a categoria com mais serviços registrado?</h1>
+                    <p class="lead my-3">Analisando as categorias de serviços (da tabela user_servicecategory) e seus serviços (pela tabela user_service) é possível identificar as categorias com mais serviços cadastrados. Com o gráfico de pizza ao lado pode-se interpretar que as categorias com maior valor representam as categorias com maior variedade de serviços dispostos pelas empresas, ou seja, as áreas de negócio mais abrangentes.</p>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     {{ plot|safe }}

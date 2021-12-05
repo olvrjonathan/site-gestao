@@ -13,10 +13,7 @@
             <div class="row align-items-center justify-content-around">
                 <div class="col-md-6 col-lg-6">
                     <h1>Qual o serviço mais desejado?</h1>
-                    <p class="lead my-3">Ao todo, 41 serviços foram cadastrados no site para simulação, como segue a tabela a direita.
-					A partir destes serviços foram cadastrados dados falsos de agendamento (user_booking) com o service_id correspondente ao id atribuido aos serviços.
-					Analisando a contagem de valores do service_id na tabela booking pode-se visualizar a tabela abaixo com o service_id dos
-					10 serviços mais recorrentes em agendamentos e logo os serviços mais desejados.</p>
+                    <p class="lead my-3">Ao todo, 41 serviços foram cadastrados no site para simulação. A partir destes serviços foram inseridos dados falsos de agendamento (user_booking) com o service_id correspondente ao id atribuido aos serviços. Analisando a contangem de valores do service_id na tabela booking pode-se visualizar o gráfico abaixo com os 10 serviços mais recorrentes em agendamentos, e logo, os serviços mais desejados.</p>
                 </div>
 				<div class="col-md-10 col-lg-6">
                     {{ plot|safe }}
