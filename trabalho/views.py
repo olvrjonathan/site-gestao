@@ -98,8 +98,8 @@ def graf7(df):
 
     fig = plt.figure()
     plt.barh(df['name'], df['n'],
-                      color='darkorange', edgecolor='black', )
-    plt.title('Serviços mais frequentes')
+                      color='darkgreen', edgecolor='black', )
+    plt.title('Top Negócios x colaboradores')
     plt.tight_layout()
     imgdata = StringIO()
     fig.savefig(imgdata, format='svg')
